@@ -8,7 +8,8 @@
 
   const props = defineProps<{
     gate: IOGate,
-    position: Position
+    position: Position,
+    isRoot?: boolean
   }>()
 
   const getFill = (gate: IOGate): string => {
@@ -31,20 +32,30 @@
     radius: 10,
     fill: fill,
     stroke: "black",
-    strokeWidth: 2
+    strokeWidth: 2.
   })
 
-  const configText: TextConfig = {
+  const configText: TextConfig = reactive({
     x: x + 15,
     y: y - 5,
     fill: "white",
     text: props.gate.label
+  })
+
+  const circleClick = () => {
+    if (props.isRoot) {
+      if (props.gate.getState() === IOState.LOW) {
+        props.gate.forceState(IOState.HI)
+      } else {
+        props.gate.forceState(IOState.LOW)
+      }
+    }
   }
 
 </script>
 
 <template>
-  <v-circle :config="configCircle"></v-circle>
+  <v-circle :config="configCircle" @click="circleClick"></v-circle>
   <v-text :config="configText"></v-text>
 </template>
 

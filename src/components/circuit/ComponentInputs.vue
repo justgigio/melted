@@ -5,7 +5,8 @@
   const props = defineProps<{
     gates: IOGate[],
     position: Position,
-    height: number
+    height: number,
+    isRoot?: boolean
   }>()
 
   const {x, y} = props.position
@@ -19,7 +20,5 @@
 
 </script>
 <template>
-  <v-layer v-for="(gate, index) in gates" :key="index">
-    <IOGateVue :gate="gate" :position="{x: gateX, y: gateY + (gateSpace * index)}" />
-  </v-layer>
+  <IOGateVue v-for="(gate, index) in gates" :key="index" :gate="gate" :position="{x: gateX, y: gateY + (gateSpace * index)}" :is-root="isRoot" />
 </template>

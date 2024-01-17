@@ -36,7 +36,7 @@
 
 <template>
   <v-stage :config="configKonva">
-    <ComponentBoard :drawable-component="drawable" :position="position" />
+    <ComponentBoard :drawable-component="drawable" :position="position" :is-root="true" />
   </v-stage>
 </template>
 

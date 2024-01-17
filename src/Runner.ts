@@ -37,7 +37,7 @@ class Runner {
       if (res.value === undefined) {
         tick = this.tick()
       }
-    }, 100)
+    }, 10)
   }
 
   public stop(){

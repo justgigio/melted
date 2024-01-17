@@ -7,11 +7,11 @@ abstract class Component {
   abstract outputs: IOGate[]
   abstract components: Component[]
   
-  public name: String
+  public name: string
   public parent?: Component
   public graphic?: DrawableComponent
 
-  constructor(name: String, parent?: Component) {
+  constructor(name: string, parent?: Component) {
     this.name = name
     this.parent = parent
   }
