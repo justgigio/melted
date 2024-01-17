@@ -7,8 +7,8 @@ class Or extends Component {
   outputs: IOGate[]
   components: Component[] = []
 
-  constructor(name: String){
-    super(name)
+  constructor(name: String, parent?: Component){
+    super(name, parent)
 
     const inputa = new IOGate('a')
     const inputb = new IOGate('b')

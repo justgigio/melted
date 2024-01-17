@@ -9,11 +9,11 @@ class NAnd extends Component {
 	outputs: IOGate[]
 	components: Component[]
 
-	constructor(name: String) {
-		super(name)
+	constructor(name: String, parent?: Component) {
+		super(name, parent)
 
-		const and = new And('AND') 
-		const not = new Not('NOT')
+		const and = new And('AND', this)
+		const not = new Not('NOT', this)
 
 		const inputa = new IOGate('a')
 		const inputb = new IOGate('b')

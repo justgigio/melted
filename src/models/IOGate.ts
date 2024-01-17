@@ -74,10 +74,10 @@ class IOGate {
     let state: IOState = IOState.DISCONNECTED
 
     if (inStates.includes(IOState.LOW)) {
-      state = IOState.LOW
-      if (inStates.includes(IOState.HI)) {
-        state = IOState.HI
-      }
+      state = IOState.LOW 
+    }
+    if (inStates.includes(IOState.HI)) {
+      state = IOState.HI
     }
 
     this.setState(state)

@@ -1,12 +1,12 @@
 <script setup lang="tsx">
 
-  import { Component } from '@/models/Component'
+  import { DrawableComponent } from '@/models/Component'
 
   import ComponentInputs from './ComponentInputs.vue'
   import ComponentOutputs from './ComponentOutputs.vue';
 
   const props = defineProps<{
-    component: Component,
+    drawableComponent: DrawableComponent,
     position: Position
   }>()
 
@@ -25,14 +25,16 @@
     strokeWidth: 4
   }
 
+  const {inputs, outputs} = props.drawableComponent.component
+
 </script>
 
 <template>
   <v-layer>
     <v-rect :config="configRect" ></v-rect>
   </v-layer>
-  <ComponentInputs :gates="component.inputs" :position="position" :height="boardHeight" />
-  <ComponentOutputs :gates="component.outputs" :position="position" :height="boardHeight" :width="boardWidth" />
+  <ComponentInputs :gates="inputs" :position="position" :height="boardHeight" />
+  <ComponentOutputs :gates="outputs" :position="position" :height="boardHeight" :width="boardWidth" />
 </template>
 
 <style scoped>

@@ -13,13 +13,13 @@ class XOr extends Component {
 	constructor(name: String) {
 		super(name)
 
-		const anda = new And('AND')
-		const andb = new And('AND')
+		const anda = new And('AND', this)
+		const andb = new And('AND', this)
  
-		const nota = new Not('NOT')
-		const notb = new Not('NOT')
+		const nota = new Not('NOT', this)
+		const notb = new Not('NOT', this)
 
-		const or = new Or('OR')
+		const or = new Or('OR', this)
 
 		const inputa = new IOGate('a')
 		const inputb = new IOGate('b')

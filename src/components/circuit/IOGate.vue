@@ -1,8 +1,10 @@
 <script setup lang="ts">
 
   import { IOGate, IOState } from '@/models/IOGate';
-import type { CircleConfig } from 'konva/lib/shapes/Circle';
-import type { TextConfig } from 'konva/lib/shapes/Text';
+  import type { CircleConfig } from 'konva/lib/shapes/Circle';
+  import type { TextConfig } from 'konva/lib/shapes/Text';
+
+  import { reactive, computed } from 'vue'
 
   const props = defineProps<{
     gate: IOGate,
@@ -21,14 +23,16 @@ import type { TextConfig } from 'konva/lib/shapes/Text';
 
   const { x, y } = props.position
 
-  const configCircle: CircleConfig = {
+  const fill = computed<string>(() => getFill(props.gate))
+
+  const configCircle: CircleConfig = reactive({
     x,
     y,
     radius: 10,
-    fill: getFill(props.gate),
+    fill: fill,
     stroke: "black",
     strokeWidth: 2
-  }
+  })
 
   const configText: TextConfig = {
     x: x + 15,

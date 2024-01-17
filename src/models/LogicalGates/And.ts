@@ -8,9 +8,14 @@ class AndIOGate extends IOGate {
 
     let state: IOState = IOState.DISCONNECTED
 
-    if (inStates.includes(IOState.HI)) {
+    const hasHI = inStates.includes(IOState.HI)
+    const hasLOW = inStates.includes(IOState.LOW)
+    const hasDisc = inStates.includes(IOState.DISCONNECTED)
+
+    if (hasHI || hasLOW) {
       state = IOState.HI
-      if (inStates.includes(IOState.LOW)) {
+
+      if (hasDisc || hasLOW) {
         state = IOState.LOW
       }
     }
@@ -27,8 +32,8 @@ class And extends Component {
   outputs: IOGate[]
   components: Component[] = []
 
-  constructor(name: String){
-    super(name)
+  constructor(name: String, parent?: Component){
+    super(name, parent)
     
     const inputa = new IOGate('a')
     const inputb = new IOGate('b')
@@ -38,6 +43,7 @@ class And extends Component {
     const outputa = new IOGate('a')
 
     inputa.connect(middleAnd)
+    inputb.connect(middleAnd)
 
     middleAnd.connect(outputa)
 
