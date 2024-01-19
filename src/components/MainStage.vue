@@ -25,18 +25,18 @@
 
   component.inputs.forEach((gate) => gate.forceState(IOState.LOW))
 
-  const drawable: DrawableComponent = reactive(new DrawableComponent(component))
+  const position: Position = {x: 0, y: 0}
+
+  const drawable: DrawableComponent = reactive(new DrawableComponent(component, position))
 
   const runner = new Runner(component)
   runner.run()
 
-  const position: Position = {x: 0, y: 0}
-  
 </script>
 
 <template>
   <v-stage :config="configKonva">
-    <ComponentBoard :drawable-component="drawable" :position="position" :is-root="true" />
+    <ComponentBoard :drawable-component="drawable" :is-root="true" />
   </v-stage>
 </template>
 

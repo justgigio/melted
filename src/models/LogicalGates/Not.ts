@@ -20,18 +20,14 @@ class Not extends Component {
   outputs: IOGate[]
   components: Component[] = []
 
-  constructor(name: String, parent?: Component){
+  constructor(name: string, parent?: Component){
     super(name, parent)
 
-    const inputa = new IOGate('a')
+    const inputa = new IOGate('a', this)
 
-    const middleNot = new NotIOGate('!')
+    const outputa = new NotIOGate('a', this)
 
-    const outputa = new IOGate('a')
-
-    inputa.connect(middleNot)
-
-    middleNot.connect(outputa)
+    inputa.connect(outputa)
 
     this.inputs = [inputa]
 

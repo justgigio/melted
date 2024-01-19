@@ -37,13 +37,12 @@ class Runner {
       if (res.value === undefined) {
         tick = this.tick()
       }
-    }, 10)
+    }, 50)
   }
 
   public stop(){
     clearInterval(this.interval)
   }
-
 
 }
 

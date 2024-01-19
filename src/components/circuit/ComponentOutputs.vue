@@ -1,6 +1,7 @@
 <script setup lang="ts">
-  import { IOGate } from '@/models/IOGate';
+  import { IOGate, DrawableGate } from '@/models/IOGate';
   import IOGateVue from './IOGate.vue'
+  import { computed } from 'vue';
 
   const props = defineProps<{
     gates: IOGate[],
@@ -16,7 +17,9 @@
   const gateX = x + props.width + 10
   const gateY = y + gateSpace
 
+  const dGates = computed<DrawableGate[]>(() => props.gates.map((gate, index) => new DrawableGate(gate, {x: gateX, y: gateY + (gateSpace * index)})))
+
 </script>
 <template>
-  <IOGateVue v-for="(gate, index) in gates" :key="index" :gate="gate" :position="{x: gateX, y: gateY + (gateSpace * index)}" />
+  <IOGateVue v-for="(dGate, index) in dGates" :key="index" :drawable-gate="dGate" />
 </template>

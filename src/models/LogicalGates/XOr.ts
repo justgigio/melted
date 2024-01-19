@@ -10,7 +10,7 @@ class XOr extends Component {
 	outputs: IOGate[]
 	components: Component[]
 
-	constructor(name: String) {
+	constructor(name: string) {
 		super(name)
 
 		const anda = new And('AND', this)
@@ -21,10 +21,10 @@ class XOr extends Component {
 
 		const or = new Or('OR', this)
 
-		const inputa = new IOGate('a')
-		const inputb = new IOGate('b')
+		const inputa = new IOGate('a', this)
+		const inputb = new IOGate('b', this)
 
-		const outputa = new IOGate('a')
+		const outputa = new IOGate('a', this)
 
 		inputa.connect(anda.inputs[0])
 		inputb.connect(nota.inputs[0])

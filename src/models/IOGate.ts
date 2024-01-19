@@ -1,3 +1,5 @@
+import { Component } from "./Component"
+
 enum IOState {
   HI,
   LOW,
@@ -31,15 +33,34 @@ class Pin {
 }
 
 
+class DrawableGate {
+  public gate: IOGate
+  public position: Position
+
+  constructor(gate: IOGate, position?: Position) {
+    this.gate = gate
+    this.gate.setGraphic(this)
+    if (position !== undefined) {
+      this.position = position
+    } else {
+      this.position = {x: 0, y: 0}
+    }
+  }
+}
+
+
 class IOGate {
   public label: string
+  public component: Component
   protected state: IOState = IOState.DISCONNECTED
   private forcedState?: IOState
   public in: Pin
   public out: Pin
+  public graphic?: DrawableGate
 
-  constructor(label:string) {
+  constructor(label:string, component: Component) {
     this.label = label
+    this.component = component
 
     this.in = new Pin(this)
     this.out = new Pin(this)
@@ -84,6 +105,10 @@ class IOGate {
 
     return this.out.connections.map((pin: Pin) => pin.gate)
   }
+
+  public setGraphic(graphic: DrawableGate) {
+    this.graphic = graphic
+  }
 }
 
-export { IOGate, IOState, Pin }
+export { IOGate, DrawableGate, IOState, Pin }

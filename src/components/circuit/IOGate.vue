@@ -1,14 +1,13 @@
 <script setup lang="ts">
 
-  import { IOGate, IOState } from '@/models/IOGate';
+  import { IOGate, IOState, DrawableGate } from '@/models/IOGate';
   import type { CircleConfig } from 'konva/lib/shapes/Circle';
   import type { TextConfig } from 'konva/lib/shapes/Text';
 
   import { reactive, computed } from 'vue'
 
   const props = defineProps<{
-    gate: IOGate,
-    position: Position,
+    drawableGate: DrawableGate,
     isRoot?: boolean
   }>()
 
@@ -22,9 +21,9 @@
     return "black"
   }
 
-  const { x, y } = props.position
+  const { x, y } = props.drawableGate.position
 
-  const fill = computed<string>(() => getFill(props.gate))
+  const fill = computed<string>(() => getFill(props.drawableGate.gate))
 
   const configCircle: CircleConfig = reactive({
     x,
@@ -39,15 +38,16 @@
     x: x + 15,
     y: y - 5,
     fill: "white",
-    text: props.gate.label
+    text: props.drawableGate.gate.label
   })
 
   const circleClick = () => {
+    const gate = props.drawableGate.gate
     if (props.isRoot) {
-      if (props.gate.getState() === IOState.LOW) {
-        props.gate.forceState(IOState.HI)
+      if (gate.getState() === IOState.LOW) {
+        gate.forceState(IOState.HI)
       } else {
-        props.gate.forceState(IOState.LOW)
+        gate.forceState(IOState.LOW)
       }
     }
   }

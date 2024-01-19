@@ -1,4 +1,10 @@
-import { IOGate } from "./IOGate";
+import { IOGate, Pin } from "./IOGate";
+
+
+type Connection = {
+  a: Pin
+  b: Pin
+}
 
 
 abstract class Component {
@@ -18,6 +24,29 @@ abstract class Component {
 
   public setGraphic(graphic: DrawableComponent) {
     this.graphic = graphic
+  }
+
+  public getConnections(): Connection[] {
+    let cons: Connection[] = []
+
+    this.inputs.forEach((input) => {
+      const iCons = input.out.connections
+      cons = cons.concat(iCons.map(con => <Connection>{a: input.out, b: con}))
+    })
+
+    this.components.forEach((comp) => {
+      comp.inputs.forEach((input) => {
+        const iCons = input.out.connections
+        cons = cons.concat(iCons.map(con => <Connection>{a: input.out, b: con}))
+      })
+
+      comp.outputs.forEach((input) => {
+        const oCons = input.out.connections
+        cons = cons.concat(oCons.map(con => <Connection>{a: input.out, b: con}))
+      })
+    })
+
+    return cons
   }
 }
 
@@ -71,3 +100,4 @@ class DrawableComponent {
 }
 
 export { Component, DrawableComponent, DrawMode }
+export type { Connection }

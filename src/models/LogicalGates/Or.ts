@@ -7,13 +7,13 @@ class Or extends Component {
   outputs: IOGate[]
   components: Component[] = []
 
-  constructor(name: String, parent?: Component){
+  constructor(name: string, parent?: Component){
     super(name, parent)
 
-    const inputa = new IOGate('a')
-    const inputb = new IOGate('b')
+    const inputa = new IOGate('a', this)
+    const inputb = new IOGate('b', this)
 
-    const outputa = new IOGate('a')
+    const outputa = new IOGate('a', this)
 
     inputa.connect(outputa)
     inputb.connect(outputa)

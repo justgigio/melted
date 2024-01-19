@@ -25,7 +25,7 @@
   <div class="about">
     <h1>Circuit View</h1>
   </div>
-  <MainStage :component-id="componentId" :width="1000" :height="800" />
+  <MainStage :component-id="componentId" :width="850" :height="600" />
 </template>
 
 <style>

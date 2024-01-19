@@ -1,26 +1,20 @@
 <script setup lang="ts">
-  import type { Component } from '@/models/Component';
-  import { IOGate } from '@/models/IOGate';
-  import IOGateVue from './IOGate.vue'
+  import type { Component, Connection } from '@/models/Component'
+  import IOConnection from './IOConnection.vue'
+  
+  import { computed } from 'vue'
 
   const props = defineProps<{
     component: Component
-    position: Position,
-    height: number
   }>()
 
-  const {x, y} = props.position
+  const connections = computed<Connection[]>(() => props.component.getConnections())
 
-  const gateSpace = props.height / (props.gates.length + 1)
-
-  const gateX = x + 10
-  const gateY = y + gateSpace
-
-
+  const getKey = (conn: Connection): string => {
+    return `${props.component.name}:${conn.a.gate.label}>${conn.b.gate.label}`
+  }
 
 </script>
 <template>
-  <v-layer v-for="(gate, index) in gates" :key="index">
-    <IOGateVue :gate="gate" :position="{x: gateX, y: gateY + (gateSpace * index)}" />
-  </v-layer>
+  <IOConnection v-for="conn in connections" :connection="conn" :key="getKey(conn)" />
 </template>
