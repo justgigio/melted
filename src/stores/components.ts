@@ -2,38 +2,16 @@ import { defineStore } from 'pinia'
 import { Component } from '@/models/Component'
 
 
-type ComponentStoreState = {
-  rootComponent?: Component
-  curentComponent?: Component
-  components: { [key: string]: Component }
-}
-
-
 export const useComponentsStore = defineStore('components', {
-  state: (): ComponentStoreState => {
+  state: () => {
     return {
-      components: {},
-      rootComponent: undefined,
-      curentComponent: undefined,
+      components: {} as { [key: string]: Component },
     }
   },
-  getters: {
-    getComponent(state) {
-      return state.curentComponent
-    }
-  },
+  getters: {},
   actions: {
-    setComponent(id: string) {
-      const component: Component = this.components[id]
-
-      if (component !== undefined) {
-        if (this.rootComponent === undefined) {
-          this.rootComponent = component
-        }
-        this.curentComponent = component
-      } else {
-        throw new Error('Invalid Component ID')
-      }
+    getComponentById(id: string): Component | undefined {
+      return this.components[id]
     },
     addComponent(id: string, component: Component) {
       this.components[id] = component

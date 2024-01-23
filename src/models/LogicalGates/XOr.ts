@@ -1,4 +1,4 @@
-import { Component } from "../Component";
+import { Component, DrawableComponent } from "../Component";
 import { IOGate } from "../IOGate";
 import { And } from "./And";
 import { Not } from "./Not";
@@ -42,6 +42,48 @@ class XOr extends Component {
 		this.inputs = [inputa, inputb]
 		this.outputs = [outputa]
 		this.components = [anda, andb, nota, notb, or]
+
+		const xorDC = new DrawableComponent(this)
+		const andADC = new DrawableComponent(anda)
+		const andBDC = new DrawableComponent(andb)
+		const notADC = new DrawableComponent(nota)
+		const notBDC = new DrawableComponent(notb)
+		const orDC = new DrawableComponent(or)
+
+		const {x: rootX, y: rootY} = xorDC.position
+		const {width: rootW, height: rootH} = xorDC.size
+		const {width: firstW, height: firstH} = andADC.size
+		const {width: secondW, height: secondH} = notADC.size
+
+		const {width: thirdW, height: thirdH} = andBDC.size
+		const {width: fourthW, height: fourthH} = notBDC.size
+
+		const {width: fifthW, height: fifthH} = orDC.size
+		
+		const firstY = rootY + (rootH / 5) - (firstH / 2)
+		const secondY = rootY + (rootH * 2 / 7) - (secondH / 2)
+		const thirdY = rootY + (rootH * 5 / 7) - (thirdH / 2)
+		const fourthY = rootY + (rootH * 4 / 5) - (fourthH / 2)
+		const fifthY = rootY + (rootH / 2) - (fifthH / 2)
+		
+		const firstX = rootX + (rootW / 2) - (firstW / 2)
+		const secondX = rootX + (rootW / 3) - (secondW / 2)
+		const thirdX = rootX + (rootW / 3) - (thirdW / 2)
+		const fourthX = rootX + (rootW / 2) - (fourthW / 2)
+		const fifthX = rootX + (rootW * 3 / 4) - (fifthW / 2)
+		
+		
+		const firstPos = {x: firstX, y: firstY}
+		const secondPos = {x: secondX, y: secondY}
+		const thirdPos = {x: thirdX, y: thirdY}
+		const fourthPos = {x: fourthX, y: fourthY}
+		const fifthPos = {x: fifthX, y: fifthY}
+
+		andADC.setPosition(firstPos)
+		notADC.setPosition(secondPos)
+		notBDC.setPosition(thirdPos)
+		andBDC.setPosition(fourthPos)
+		orDC.setPosition(fifthPos)
 	}
 }
 

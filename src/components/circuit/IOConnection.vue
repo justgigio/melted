@@ -27,9 +27,8 @@ import { computed, reactive } from 'vue';
 
   const stroke = computed<string>(() => {
     const stateA = props.connection.a.gate.getState()
-    const stateB = props.connection.b.gate.getState()
 
-    if (stateA === IOState.HI && stateB === IOState.HI) {
+    if (stateA === IOState.HI) {
       return "red"
     }
     return "grey"

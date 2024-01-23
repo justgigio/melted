@@ -1,4 +1,4 @@
-import { Component } from "../Component";
+import { Component, DrawableComponent } from "../Component";
 import { IOGate, IOState, Pin } from "../IOGate";
 
 
@@ -46,6 +46,8 @@ class And extends Component {
     this.inputs = [inputa, inputb]
 
     this.outputs = [outputa]
+
+    new DrawableComponent(this)
   }
 }
 

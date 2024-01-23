@@ -1,7 +1,9 @@
-import { Component } from "../Component";
+import { Component, DrawableComponent } from "../Component";
 import { IOGate } from "../IOGate";
 import { And } from "./And";
 import { Not } from "./Not";
+
+import { CHILD_COMPONENT_SIZE } from "../constants";
 
 
 class NAnd extends Component {
@@ -29,6 +31,28 @@ class NAnd extends Component {
 		this.inputs = [inputa, inputb]
 		this.outputs = [outputa]
 		this.components = [and, not]
+
+		const nandDC = new DrawableComponent(this)
+		const andDC = new DrawableComponent(and)
+		const notDC = new DrawableComponent(not)
+
+		const {x: rootX, y: rootY} = nandDC.position
+		const {width: rootW, height: rootH} = nandDC.size
+		const {width: firstW, height: firstH} = andDC.size
+		const {width: secondW, height: secondH} = notDC.size
+		
+		const firstY = rootY + ((rootH - firstH) / 2)
+		const secondY = rootY + ((rootH - secondH) / 2)
+		
+		const firstX = rootX + (rootW / 3) - (firstW / 2)
+		const secondX = rootX + (rootW * 2 / 3) - (secondW / 2)
+		
+		const firstPos = {x: firstX, y: firstY}
+		const secondPos = {x: secondX, y: secondY}
+
+		andDC.setPosition(firstPos)
+		notDC.setPosition(secondPos)
+
 	}
 }
 

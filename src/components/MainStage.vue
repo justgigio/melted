@@ -1,12 +1,12 @@
 <script setup lang="ts">
-  import { Component, DrawableComponent } from '@/models/Component';
+  import { DrawableComponent } from '@/models/Component';
   import { Runner } from '@/Runner';
 
   import { useComponentsStore } from '@/stores/components'
 
   import ComponentBoard from './circuit/ComponentBoard.vue';
 
-  import { reactive } from 'vue';
+  import { computed } from 'vue';
   import { IOState } from '@/models/IOGate';
 
   const props = defineProps<{
@@ -19,24 +19,18 @@
 
   const store = useComponentsStore()
 
-  store.setComponent(props.componentId)
+  const component = computed(() => store.getComponentById(props.componentId)!)
 
-  const component: Component = store.getComponent!
+  component.value.inputs.forEach((gate) => gate.forceState(IOState.LOW))
 
-  component.inputs.forEach((gate) => gate.forceState(IOState.LOW))
-
-  const position: Position = {x: 0, y: 0}
-
-  const drawable: DrawableComponent = reactive(new DrawableComponent(component, position))
-
-  const runner = new Runner(component)
+  const runner = new Runner(component.value)
   runner.run()
 
 </script>
 
 <template>
   <v-stage :config="configKonva">
-    <ComponentBoard :drawable-component="drawable" :is-root="true" />
+    <ComponentBoard :drawable-component="component.graphic!" :is-root="true" />
   </v-stage>
 </template>
 

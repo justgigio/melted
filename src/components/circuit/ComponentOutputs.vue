@@ -14,7 +14,7 @@
 
   const gateSpace = props.height / (props.gates.length + 1)
 
-  const gateX = x + props.width + 10
+  const gateX = x + props.width
   const gateY = y + gateSpace
 
   const dGates = computed<DrawableGate[]>(() => props.gates.map((gate, index) => new DrawableGate(gate, {x: gateX, y: gateY + (gateSpace * index)})))

@@ -1,17 +1,17 @@
 <script setup lang="ts">
-  import type { Component, Connection } from '@/models/Component'
+  import type { DrawableComponent, Connection } from '@/models/Component'
   import IOConnection from './IOConnection.vue'
   
   import { computed } from 'vue'
 
   const props = defineProps<{
-    component: Component
+    drawableComponent: DrawableComponent
   }>()
 
-  const connections = computed<Connection[]>(() => props.component.getConnections())
+  const connections = computed<Connection[]>(() => props.drawableComponent.getConnections())
 
   const getKey = (conn: Connection): string => {
-    return `${props.component.name}:${conn.a.gate.label}>${conn.b.gate.label}`
+    return `${props.drawableComponent.component.name}:${conn.a.gate.label}>${conn.b.gate.label}`
   }
 
 </script>

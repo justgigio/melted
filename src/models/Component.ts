@@ -1,4 +1,5 @@
 import { IOGate, Pin } from "./IOGate";
+import { BOARD_MARGIN, CHILD_COMPONENT_SIZE, CHILD_GATE_RADIUS, ROOT_COMPONENT_SIZE, ROOT_GATE_RADIUS } from "./constants";
 
 
 type Connection = {
@@ -26,19 +27,43 @@ abstract class Component {
     this.graphic = graphic
   }
 
+  public isRoot() :boolean {
+    return this.parent === undefined
+  }
+}
+
+
+class DrawableComponent {
+
+  component: Component
+  position: Position
+  size: Size
+
+  constructor(component: Component, position?: Position, size?: Size) {
+    this.component = component
+    this.component.setGraphic(this)
+
+    if (position !== undefined) {
+      this.position = position
+    } else {
+      this.position = {x: BOARD_MARGIN, y: BOARD_MARGIN}
+    }
+    if (size !== undefined) {
+      this.size = size
+    } else {
+      this.size = this.calculateSize()
+    }
+  }
+
   public getConnections(): Connection[] {
     let cons: Connection[] = []
 
-    this.inputs.forEach((input) => {
+    this.component.inputs.forEach((input) => {
       const iCons = input.out.connections
       cons = cons.concat(iCons.map(con => <Connection>{a: input.out, b: con}))
     })
 
-    this.components.forEach((comp) => {
-      comp.inputs.forEach((input) => {
-        const iCons = input.out.connections
-        cons = cons.concat(iCons.map(con => <Connection>{a: input.out, b: con}))
-      })
+    this.component.components.forEach((comp) => {
 
       comp.outputs.forEach((input) => {
         const oCons = input.out.connections
@@ -48,56 +73,36 @@ abstract class Component {
 
     return cons
   }
-}
 
-
-enum DrawMode {
-  Explicit,
-  Compact
-}
-
-
-class DrawableComponent {
-
-  drawMode: DrawMode = DrawMode.Explicit
-  component: Component
-  position: Position
-  width: number
-  height: number
-
-  constructor(component: Component, position?: Position, width?: number, height?: number) {
-    this.component = component
-    this.component.setGraphic(this)
-
-    if (position !== undefined) {
-      this.position = position
-    } else {
-      this.position = this.calculatePosition()
-    }
-    if (width !== undefined) {
-      this.width = width
-    } else {
-      this.width = this.calculateWidth()
-    }
-    if (height !== undefined) {
-      this.height = height
-    } else {
-      this.height = this.calculateHeight()
-    }
+  public setPosition(position: Position) {
+    this.position = position
   }
 
-  private calculatePosition(): Position {
-    return {x: 0, y: 0}
+  public setSize(size: Size) {
+    this.size = size
   }
 
-  private calculateWidth(): number {
-    return 800
-  }
+  private calculateSize(): Size {
+    let width = CHILD_COMPONENT_SIZE.width
+    let height = 30
 
-  private calculateHeight(): number {
-    return 600
+    let gateRadius = CHILD_GATE_RADIUS
+    if (this.component.isRoot()) {
+      width = ROOT_COMPONENT_SIZE.width
+      height = ROOT_COMPONENT_SIZE.height
+      gateRadius = ROOT_GATE_RADIUS
+    }
+
+    const inLength = this.component.inputs.length
+    const outLength = this.component.outputs.length
+    
+    const newHeight = (1 + Math.max(inLength, outLength) * 2) * gateRadius * 2
+
+    height = Math.max(height, newHeight)
+
+    return {width, height}
   }
 }
 
-export { Component, DrawableComponent, DrawMode }
+export { Component, DrawableComponent }
 export type { Connection }
