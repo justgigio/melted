@@ -1,9 +1,11 @@
 import { Component } from "./Component"
+import { CHILD_GATE_RADIUS, GATE_DEFAULT_COLOR, GATE_DISCONNECTED_COLOR, GATE_LOW_STATE_COLOR, ROOT_GATE_RADIUS, STROKE_COLOR } from "./constants"
+
 
 enum IOState {
-  HI,
   LOW,
-  DISCONNECTED
+  HI,
+  DISCONNECTED,
 }
 
 
@@ -36,15 +38,69 @@ class Pin {
 class DrawableGate {
   public gate: IOGate
   public position: Position
+  public size: Size
+  public color: string = GATE_DEFAULT_COLOR
+  public lowStateColor: string = GATE_LOW_STATE_COLOR
+  public diconnectedColor: string = GATE_DISCONNECTED_COLOR
+  public strokeColor: string = STROKE_COLOR
 
-  constructor(gate: IOGate, position?: Position) {
+  constructor(gate: IOGate, position?: Position, size?: Size) {
+    gate.setGraphic(this)
     this.gate = gate
-    this.gate.setGraphic(this)
+
     if (position !== undefined) {
       this.position = position
     } else {
       this.position = {x: 0, y: 0}
     }
+    if (size !== undefined) {
+      this.size = size
+    } else {
+      this.size = this.calculateSize()
+    }
+  }
+
+  public setColor(color: string) {
+    this.color = color
+  }
+
+  public getColor(): string {
+    switch (this.gate.getState()) {
+      case IOState.LOW:
+        return this.lowStateColor
+      case IOState.HI:
+        return this.getHighStateColor()
+    }
+    return this.diconnectedColor
+  }
+
+  private getHighStateColor(): string {
+    const onInputs = this.gate.in.connections.filter(pin => pin.gate.getState() === IOState.HI)
+
+    if (onInputs.length === 1) {
+      return onInputs[0].gate.graphic!.getHighStateColor()
+    }
+    return this.color
+  }
+
+  public setPosition(position: Position) {
+    this.position = position
+  }
+
+  public setSize(size: Size) {
+    this.size = size
+  }
+
+  private calculateSize(): Size {
+    let width = CHILD_GATE_RADIUS * 2 
+    let height = CHILD_GATE_RADIUS * 2
+
+    if (this.gate.component.isRoot()) {
+      width = ROOT_GATE_RADIUS * 2
+      height = ROOT_GATE_RADIUS * 2
+    }
+
+    return {width, height}
   }
 }
 

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+
+  import { ref } from 'vue'
+
   import MainStage from '@/components/MainStage.vue'
 
   import { useComponentsStore } from '@/stores/components'
@@ -8,7 +11,6 @@
   import { Not } from '@/models/LogicalGates/Not'
   import { Or } from '@/models/LogicalGates/Or'
   import { XOr } from '@/models/LogicalGates/XOr'
-  import { ref } from 'vue'
   import type { Component } from '@/models/Component'
 
   const store = useComponentsStore()

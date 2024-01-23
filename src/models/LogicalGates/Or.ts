@@ -1,5 +1,5 @@
 import { Component, DrawableComponent } from "../Component";
-import { IOGate } from "../IOGate";
+import { DrawableGate, IOGate } from "../IOGate";
 
 
 class Or extends Component {
@@ -21,6 +21,10 @@ class Or extends Component {
     this.inputs = [inputa, inputb]
 
     this.outputs = [outputa]
+
+    new DrawableGate(inputa)
+		new DrawableGate(inputb)
+		new DrawableGate(outputa)
 
     new DrawableComponent(this)
   }

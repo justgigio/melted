@@ -1,9 +1,7 @@
 import { Component, DrawableComponent } from "../Component";
-import { IOGate } from "../IOGate";
+import { DrawableGate, IOGate } from "../IOGate";
 import { And } from "./And";
 import { Not } from "./Not";
-
-import { CHILD_COMPONENT_SIZE } from "../constants";
 
 
 class NAnd extends Component {
@@ -32,10 +30,14 @@ class NAnd extends Component {
 		this.outputs = [outputa]
 		this.components = [and, not]
 
+		new DrawableGate(inputa)
+		new DrawableGate(inputb)
+		new DrawableGate(outputa)
+
 		const nandDC = new DrawableComponent(this)
 		const andDC = new DrawableComponent(and)
 		const notDC = new DrawableComponent(not)
-
+		
 		const {x: rootX, y: rootY} = nandDC.position
 		const {width: rootW, height: rootH} = nandDC.size
 		const {width: firstW, height: firstH} = andDC.size
@@ -49,10 +51,10 @@ class NAnd extends Component {
 		
 		const firstPos = {x: firstX, y: firstY}
 		const secondPos = {x: secondX, y: secondY}
-
+		
 		andDC.setPosition(firstPos)
 		notDC.setPosition(secondPos)
-
+		
 	}
 }
 

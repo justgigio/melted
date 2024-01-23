@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { DrawableComponent } from '@/models/Component';
   import { Runner } from '@/Runner';
 
   import { useComponentsStore } from '@/stores/components'
@@ -30,7 +29,7 @@
 
 <template>
   <v-stage :config="configKonva">
-    <ComponentBoard :drawable-component="component.graphic!" :is-root="true" />
+    <ComponentBoard :drawable-component="component.graphic!" />
   </v-stage>
 </template>
 

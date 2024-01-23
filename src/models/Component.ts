@@ -1,5 +1,5 @@
-import { IOGate, Pin } from "./IOGate";
-import { BOARD_MARGIN, CHILD_COMPONENT_SIZE, CHILD_GATE_RADIUS, ROOT_COMPONENT_SIZE, ROOT_GATE_RADIUS } from "./constants";
+import { IOGate, Pin } from "./IOGate"
+import { BOARD_DEFAULT_COLOR, BOARD_MARGIN, BOARD_STROKE_WIDTH, CHILD_COMPONENT_SIZE, CHILD_GATE_RADIUS, COMPONENT_DEFAULT_COLOR, ROOT_COMPONENT_SIZE, ROOT_GATE_RADIUS, STROKE_COLOR, TEXT_PRIMARY_COLOR } from "./constants"
 
 
 type Connection = {
@@ -38,10 +38,18 @@ class DrawableComponent {
   component: Component
   position: Position
   size: Size
+  textColor: string = TEXT_PRIMARY_COLOR
+  fillColor: string = COMPONENT_DEFAULT_COLOR
+  strokeColor: string = STROKE_COLOR
+  strokeWidth: number = BOARD_STROKE_WIDTH / 2
 
   constructor(component: Component, position?: Position, size?: Size) {
-    this.component = component
-    this.component.setGraphic(this)
+    component.setGraphic(this)
+    this.component = new Proxy(component, { set: (target, property, value) => {
+      Object.assign(target, {[property]: value})
+      this.update()
+      return true
+    }})
 
     if (position !== undefined) {
       this.position = position
@@ -53,6 +61,19 @@ class DrawableComponent {
     } else {
       this.size = this.calculateSize()
     }
+
+    if (this.component.isRoot()) {
+      this.fillColor = BOARD_DEFAULT_COLOR
+      this.strokeWidth = BOARD_STROKE_WIDTH
+    }
+
+    this.update()
+  }
+
+  public update() {
+    this.setInputsPosition()
+    this.setOutputsPosition()
+    this.component.parent?.graphic?.update()
   }
 
   public getConnections(): Connection[] {
@@ -74,17 +95,43 @@ class DrawableComponent {
     return cons
   }
 
+  public setColor(color: string) {
+    this.fillColor = color
+  }
+
   public setPosition(position: Position) {
     this.position = position
+    this.update()
   }
 
   public setSize(size: Size) {
     this.size = size
   }
 
+  private setInputsPosition() {
+    const {x, y} = this.position
+
+    const gateSpace = this.size.height / (this.component.inputs.length + 1)
+
+    const gateX = x
+    const gateY = y + gateSpace
+
+    this.component.inputs.forEach((gate, index) => gate.graphic?.setPosition({x: gateX, y: gateY + (gateSpace * index)}))
+  }
+
+  private setOutputsPosition() {
+    const {x, y} = this.position
+
+    const gateSpace = this.size.height / (this.component.outputs.length + 1)
+
+    const gateX = x + this.size.width
+    const gateY = y + gateSpace
+
+    this.component.outputs.forEach((gate, index) => gate.graphic?.setPosition({x: gateX, y: gateY + (gateSpace * index)}))
+  }
+
   private calculateSize(): Size {
-    let width = CHILD_COMPONENT_SIZE.width
-    let height = 30
+    let {width, height} = CHILD_COMPONENT_SIZE
 
     let gateRadius = CHILD_GATE_RADIUS
     if (this.component.isRoot()) {

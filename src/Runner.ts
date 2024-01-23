@@ -17,8 +17,9 @@ class Runner {
 
   public* tick() {
     let gates: IOGate[] = this.rootComponent.inputs
-
+    
     while (gates.length > 0) {
+      console.log(gates.length)
       let newGates: IOGate[] = []
 
       gates.forEach((gate) => {
@@ -37,7 +38,7 @@ class Runner {
       if (res.value === undefined) {
         tick = this.tick()
       }
-    }, 50)
+    }, 1)
   }
 
   public stop(){

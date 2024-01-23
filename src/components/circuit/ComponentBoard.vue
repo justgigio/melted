@@ -1,19 +1,20 @@
 <script setup lang="tsx">
 
+  import { reactive } from 'vue'
+
+  import type { RectConfig } from 'konva/lib/shapes/Rect'
+  import type { TextConfig } from 'konva/lib/shapes/Text'
+
   import { DrawableComponent } from '@/models/Component'
-
+  
+  import ComponentComponents from './ComponentComponents.vue'
+  import ComponentConnections from './ComponentConnections.vue'
   import ComponentInputs from './ComponentInputs.vue'
-  import ComponentOutputs from './ComponentOutputs.vue';
+  import ComponentOutputs from './ComponentOutputs.vue'
 
-  import { computed, reactive } from 'vue'
-  import type { RectConfig } from 'konva/lib/shapes/Rect';
-  import type { TextConfig } from 'konva/lib/shapes/Text';
-  import ComponentConnections from './ComponentConnections.vue';
-  import ComponentComponents from './ComponentComponents.vue';
 
   const props = defineProps<{
-    drawableComponent: DrawableComponent,
-    isRoot?: boolean
+    drawableComponent: DrawableComponent
   }>()
 
   const { position } = props.drawableComponent
@@ -21,23 +22,24 @@
 
   const boardWidth: number = props.drawableComponent.size.width
   const boardHeight: number = props.drawableComponent.size.height
-
-  const boardFill = computed<string>(() => props.isRoot ? "" : "darkgray")
+  const {fillColor, strokeColor, strokeWidth} = props.drawableComponent
 
   const configRect: RectConfig = reactive({
     x,
     y,
     width: boardWidth,
     height: boardHeight,
-    fill: boardFill,
-    stroke: "black",
-    strokeWidth: 4,
+    fill: fillColor,
+    stroke: strokeColor,
+    strokeWidth: strokeWidth,
   })
 
   let textAlign = 'center'
   let textVAlign = 'middle'
 
-  if (props.isRoot) {
+  const isRoot = props.drawableComponent.component.isRoot()
+
+  if (isRoot) {
     textAlign = 'left'
     textVAlign = 'top'
   }
@@ -50,7 +52,7 @@
     padding: 20,
     align: textAlign,
     verticalAlign: textVAlign,
-    fill: "white",
+    fill: props.drawableComponent.textColor,
     text: props.drawableComponent.component.name
   })
 
@@ -59,14 +61,14 @@
 </script>
 
 <template>
-  <ComponentComponents :components="components" v-if="isRoot" />
   <v-layer>
     <v-rect :config="configRect" ></v-rect>
     <v-text :config="configText" ></v-text>
-    <ComponentInputs :gates="inputs" :position="position" :height="boardHeight" :is-root="isRoot" />
-    <ComponentOutputs :gates="outputs" :position="position" :height="boardHeight" :width="boardWidth" />
     <ComponentConnections :drawable-component="drawableComponent" v-if="isRoot" />
+    <ComponentInputs :gates="inputs" />
+    <ComponentOutputs :gates="outputs" />
   </v-layer>
+  <ComponentComponents :components="components" v-if="isRoot" />
 </template>
 
 <style scoped>

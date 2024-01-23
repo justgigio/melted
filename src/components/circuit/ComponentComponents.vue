@@ -10,5 +10,5 @@
 
 </script>
 <template>
-  <ComponentBoard v-for="(dComp, index) in dComponents" :drawable-component="dComp" :is-root="false" :key="index" />
+  <ComponentBoard v-for="(dComp, index) in dComponents" :drawable-component="dComp" :key="index" />
 </template>

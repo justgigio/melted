@@ -1,5 +1,5 @@
 import { Component, DrawableComponent } from "../Component";
-import { IOGate, IOState } from "../IOGate";
+import { DrawableGate, IOGate, IOState } from "../IOGate";
 
 
 class NotIOGate extends IOGate {
@@ -32,6 +32,9 @@ class Not extends Component {
     this.inputs = [inputa]
 
     this.outputs = [outputa]
+
+    new DrawableGate(inputa)
+		new DrawableGate(outputa)
 
     new DrawableComponent(this)
   }

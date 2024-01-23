@@ -8,42 +8,44 @@
 
   const props = defineProps<{
     drawableGate: DrawableGate,
-    isRoot?: boolean
+    canClick?: boolean,
+    isOutput?: boolean
   }>()
-
-  const getFill = (gate: IOGate): string => {
-    switch (gate.getState()) {
-      case IOState.LOW:
-        return "grey"
-      case IOState.HI:
-        return "red"
-    }
-    return "black"
-  }
 
   const { x, y } = props.drawableGate.position
 
-  const fill = computed<string>(() => getFill(props.drawableGate.gate))
+  const fill = computed<string>(() => props.drawableGate.getColor())
 
   const configCircle: CircleConfig = reactive({
     x,
     y,
-    radius: 10,
+    radius: props.drawableGate.size.width / 2,
     fill: fill,
-    stroke: "black",
-    strokeWidth: 2.
   })
 
+  let textPosition = {x: x + 8, y: y - 6}
+  let fontSize = 11
+
+  if (props.drawableGate.gate.component.isRoot()) {
+    textPosition = {x: x + 10, y: y - 22}
+    fontSize = 16
+  }
+
+  if (props.isOutput) {
+    textPosition.x -= fontSize + 12 
+  }
+
   const configText: TextConfig = reactive({
-    x: x + 15,
-    y: y - 5,
-    fill: "white",
-    text: props.drawableGate.gate.label
+    x: textPosition.x,
+    y: textPosition.y,
+    fill: props.drawableGate.gate.component.graphic?.textColor,
+    text: props.drawableGate.gate.label,
+    fontSize: fontSize
   })
 
   const circleClick = () => {
     const gate = props.drawableGate.gate
-    if (props.isRoot) {
+    if (props.canClick) {
       if (gate.getState() === IOState.LOW) {
         gate.forceState(IOState.HI)
       } else {

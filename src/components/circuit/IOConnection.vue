@@ -25,13 +25,13 @@ import { computed, reactive } from 'vue';
   const {x: x0, y: y0} = p0
   const {x: x1, y: y1} = p1
 
-  const stroke = computed<string>(() => {
+  const stroke = computed<string | undefined>(() => {
     const stateA = props.connection.a.gate.getState()
 
     if (stateA === IOState.HI) {
-      return "red"
+      return props.connection.a.gate.graphic?.color
     }
-    return "grey"
+    return props.connection.a.gate.graphic?.lowStateColor
   })
 
   const configLine: LineConfig = reactive({
