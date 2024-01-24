@@ -4,45 +4,53 @@ import type { IOGate } from "./models/IOGate";
 
 class Runner {
 
-  private rootComponent: Component
-  private clock: number = 1000 // Hz
-  private interval?: ReturnType<typeof setInterval>
+  static instance?: Runner
 
-  constructor(rootComponent: Component, clock?: number) {
-    this.rootComponent = rootComponent
-    if (clock !== undefined) {
-      this.clock = clock
+  private component?: Component
+  private cycleQueue: IOGate[] = []
+  private running: boolean = false
+
+  private constructor() {}
+
+  public static getInstance(): Runner {
+    if (this.instance === undefined){
+      this.instance = new Runner()
+    }
+    return this.instance
+  }
+
+  public runCycle() {
+    this.cycleQueue = [...this.component!.inputs]
+    this.cycle()
+    if (this.running) {
+      requestAnimationFrame(() => this.runCycle())
     }
   }
 
-  public* tick() {
-    let gates: IOGate[] = this.rootComponent.inputs
-    
-    while (gates.length > 0) {
-      console.log(gates.length)
-      let newGates: IOGate[] = []
+  public setComponent(component: Component) {
+    this.stop()
+    this.component = component
+  }
 
-      gates.forEach((gate) => {
+  public cycle() {
+    if (this.cycleQueue.length > 0){
+      let newGates: IOGate[] = []
+      this.cycleQueue.forEach((gate) => {
         newGates = newGates.concat(gate.run())
       })
-
-      gates = newGates
-      yield true
+      this.cycleQueue = newGates
+      setTimeout(() => this.cycle(), 1)
     }
   }
 
   public run(){
-    let tick = this.tick()
-    this.interval = setInterval(() => {
-      const res = tick.next()
-      if (res.value === undefined) {
-        tick = this.tick()
-      }
-    }, 1)
+    this.running = true
+    this.runCycle()
   }
 
   public stop(){
-    clearInterval(this.interval)
+    this.cycleQueue = []
+    this.running = false
   }
 
 }

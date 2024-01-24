@@ -11,12 +11,14 @@
   import { Not } from '@/models/LogicalGates/Not'
   import { Or } from '@/models/LogicalGates/Or'
   import { XOr } from '@/models/LogicalGates/XOr'
+  import { Test } from '@/models/LogicalGates/Test'
   import type { Component } from '@/models/Component'
 
   const store = useComponentsStore()
 
   const availableComponents: {[key: string]: Component } = {}
 
+  availableComponents['test'] = new Test('Test')
   availableComponents['and'] = new And('AND')
   availableComponents['nand'] = new NAnd('NAND')
   availableComponents['not'] = new Not('NOT')

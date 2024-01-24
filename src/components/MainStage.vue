@@ -5,7 +5,6 @@
 
   import ComponentBoard from './circuit/ComponentBoard.vue';
 
-  import { computed } from 'vue';
   import { IOState } from '@/models/IOGate';
 
   const props = defineProps<{
@@ -18,18 +17,22 @@
 
   const store = useComponentsStore()
 
-  const component = computed(() => store.getComponentById(props.componentId)!)
+  const component = store.getComponentById(props.componentId)!
 
-  component.value.inputs.forEach((gate) => gate.forceState(IOState.LOW))
+  component.inputs.forEach((gate) => gate.forceState(IOState.LOW))
 
-  const runner = new Runner(component.value)
+  const runner = Runner.getInstance()
+  runner.setComponent(component)
+  
   runner.run()
 
 </script>
 
 <template>
   <v-stage :config="configKonva">
-    <ComponentBoard :drawable-component="component.graphic!" />
+    <v-layer>
+      <ComponentBoard :drawable-component="component.graphic!" />
+    </v-layer>
   </v-stage>
 </template>
 

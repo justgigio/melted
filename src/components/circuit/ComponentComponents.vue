@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { Component } from '@/models/Component';
+  import type { Component } from '@/models/Component';
   import ComponentBoard from './ComponentBoard.vue';
 
   const props = defineProps<{

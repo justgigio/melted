@@ -61,14 +61,14 @@
 </script>
 
 <template>
-  <v-layer>
-    <v-rect :config="configRect" ></v-rect>
-    <v-text :config="configText" ></v-text>
-    <ComponentConnections :drawable-component="drawableComponent" v-if="isRoot" />
-    <ComponentInputs :gates="inputs" />
-    <ComponentOutputs :gates="outputs" />
-  </v-layer>
-  <ComponentComponents :components="components" v-if="isRoot" />
+    <v-group>
+      <v-rect :config="configRect" ></v-rect>
+      <v-text :config="configText" ></v-text>
+      <ComponentConnections :drawable-component="drawableComponent" v-if="isRoot" />
+      <ComponentInputs :gates="inputs" />
+      <ComponentOutputs :gates="outputs" />
+    </v-group>
+    <ComponentComponents :components="components" v-if="isRoot" />
 </template>
 
 <style scoped>
