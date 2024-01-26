@@ -1,5 +1,5 @@
 import { Component, DrawableComponent } from "../Component";
-import { DrawableGate, IOGate } from "../IOGate";
+import { DrawableConnection, DrawableGate, IOGate } from "../IOGate";
 import { And } from "./And";
 import { Not } from "./Not";
 
@@ -15,16 +15,16 @@ class NAnd extends Component {
 		const and = new And('AND', this)
 		const not = new Not('NOT', this)
 
-		const inputa = new IOGate('a', this)
-		const inputb = new IOGate('b', this)
+		const inputa = new IOGate('ina', this)
+		const inputb = new IOGate('inb', this)
 
-		const outputa = new IOGate('a', this)
+		const outputa = new IOGate('out', this)
 
-		inputa.connect(and.inputs[0])
-		inputb.connect(and.inputs[1])
+		const connAAND = inputa.connect(and.inputs[0])
+		const connBAND = inputb.connect(and.inputs[1])
 
-		and.outputs[0].connect(not.inputs[0])
-		not.outputs[0].connect(outputa)
+		const connANDNOT = and.outputs[0].connect(not.inputs[0])
+		const connNOTA = not.outputs[0].connect(outputa)
 
 		this.inputs = [inputa, inputb]
 		this.outputs = [outputa]
@@ -54,6 +54,11 @@ class NAnd extends Component {
 		
 		andDC.setPosition(firstPos)
 		notDC.setPosition(secondPos)
+
+		new DrawableConnection(connAAND!)
+		new DrawableConnection(connBAND!)
+		new DrawableConnection(connANDNOT!)
+		new DrawableConnection(connNOTA!)
 		
 	}
 }

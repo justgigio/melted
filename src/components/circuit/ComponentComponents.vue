@@ -1,14 +1,12 @@
 <script setup lang="ts">
-  import type { Component } from '@/models/Component';
+  import type { DrawableComponent } from '@/models/Component';
   import ComponentBoard from './ComponentBoard.vue';
 
-  const props = defineProps<{
-    components: Component[],
+  defineProps<{
+    drawableComponents: DrawableComponent[],
   }>()
-
-  const dComponents = props.components.map(comp => comp.graphic!)
 
 </script>
 <template>
-  <ComponentBoard v-for="(dComp, index) in dComponents" :drawable-component="dComp" :key="index" />
+  <ComponentBoard v-for="(dComp, index) in drawableComponents" :drawable-component="dComp" :key="index + dComp.component.name" />
 </template>

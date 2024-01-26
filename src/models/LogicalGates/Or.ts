@@ -1,5 +1,5 @@
 import { Component, DrawableComponent } from "../Component";
-import { DrawableGate, IOGate } from "../IOGate";
+import { DrawableConnection, DrawableGate, IOGate } from "../IOGate";
 
 
 class Or extends Component {
@@ -10,13 +10,13 @@ class Or extends Component {
   constructor(name: string, parent?: Component){
     super(name, parent)
 
-    const inputa = new IOGate('a', this)
-    const inputb = new IOGate('b', this)
+    const inputa = new IOGate('ina', this)
+    const inputb = new IOGate('inb', this)
 
-    const outputa = new IOGate('a', this)
+    const outputa = new IOGate('out', this)
 
-    inputa.connect(outputa)
-    inputb.connect(outputa)
+    const connAA = inputa.connect(outputa)
+    const connAB = inputb.connect(outputa)
 
     this.inputs = [inputa, inputb]
 
@@ -26,7 +26,11 @@ class Or extends Component {
 		new DrawableGate(inputb)
 		new DrawableGate(outputa)
 
+
     new DrawableComponent(this)
+
+    new DrawableConnection(connAA!)
+    new DrawableConnection(connAB!)
   }
 }
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-  import { ref } from 'vue'
+  import { ref, watch } from 'vue'
 
   import MainStage from '@/components/MainStage.vue'
 
@@ -12,12 +12,14 @@
   import { Or } from '@/models/LogicalGates/Or'
   import { XOr } from '@/models/LogicalGates/XOr'
   import { Test } from '@/models/LogicalGates/Test'
+  import { SRLatch } from '@/models/LogicalGates/SRLatch'
   import type { Component } from '@/models/Component'
 
   const store = useComponentsStore()
 
   const availableComponents: {[key: string]: Component } = {}
 
+  availableComponents['sr_latch'] = new SRLatch('SR Latch')
   availableComponents['test'] = new Test('Test')
   availableComponents['and'] = new And('AND')
   availableComponents['nand'] = new NAnd('NAND')
@@ -30,6 +32,10 @@
   }
 
   const componentId = ref(Object.keys(availableComponents)[0])
+
+  watch(componentId, (_newId, oldId) => {
+    availableComponents[oldId].stop()
+  })
 
 </script>
 

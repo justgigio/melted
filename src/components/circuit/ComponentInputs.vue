@@ -1,14 +1,19 @@
 <script setup lang="ts">
-  import type { IOGate } from '@/models/IOGate'
+  import { computed } from 'vue';
+  import type { DrawableGate } from '@/models/IOGate'
   import IOGateVue from './IOGate.vue'
 
   const props = defineProps<{
-    gates: IOGate[],
+    drawableGates: DrawableGate[],
   }>()
 
-  const canClick = props.gates[0].component.isRoot()
+  const canClick = props.drawableGates[0].gate.component.isRoot()
+  
+  const keys = computed<string[]>(() => {
+    return props.drawableGates.map(dGate => `[${dGate.gate.component.name}]${dGate.gate.label}:${dGate.getColor()}`)
+  })
 
 </script>
 <template>
-  <IOGateVue v-for="(gate, index) in gates" :key="index" :drawable-gate="gate.graphic!" :can-click="canClick" />
+  <IOGateVue v-for="(dGate, index) in drawableGates" :key="keys[index]" :drawable-gate="dGate" :can-click="canClick" />
 </template>

@@ -1,11 +1,12 @@
 <script setup lang="tsx">
 
-  import { reactive } from 'vue'
+  import { computed, reactive } from 'vue'
 
   import type { RectConfig } from 'konva/lib/shapes/Rect'
   import type { TextConfig } from 'konva/lib/shapes/Text'
 
-  import { DrawableComponent } from '@/models/Component'
+  import type { DrawableComponent } from '@/models/Component'
+  import type { DrawableGate } from '@/models/IOGate'
   
   import ComponentComponents from './ComponentComponents.vue'
   import ComponentConnections from './ComponentConnections.vue'
@@ -58,17 +59,23 @@
 
   const {inputs, outputs, components} = props.drawableComponent.component
 
+  const drawableInputs = computed<DrawableGate[]>(() => inputs.map(gate => gate.graphic!))
+  const drawableOutputs = computed<DrawableGate[]>(() => outputs.map(gate => gate.graphic!))
+  const drawableComponents = computed<DrawableComponent[]>(() => components.map(comp => comp.graphic!))
+
+  const drawableConnections = props.drawableComponent.getConnections()
+
 </script>
 
 <template>
     <v-group>
       <v-rect :config="configRect" ></v-rect>
       <v-text :config="configText" ></v-text>
-      <ComponentConnections :drawable-component="drawableComponent" v-if="isRoot" />
-      <ComponentInputs :gates="inputs" />
-      <ComponentOutputs :gates="outputs" />
+      <ComponentConnections :drawable-connections="drawableConnections" v-if="isRoot" />
+      <ComponentInputs :drawable-gates="drawableInputs" />
+      <ComponentOutputs :drawable-gates="drawableOutputs" />
     </v-group>
-    <ComponentComponents :components="components" v-if="isRoot" />
+    <ComponentComponents :drawable-components="drawableComponents" v-if="isRoot" />
 </template>
 
 <style scoped>

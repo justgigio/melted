@@ -1,5 +1,5 @@
 import { Component, DrawableComponent } from "../Component";
-import { DrawableGate, IOGate } from "../IOGate";
+import { DrawableConnection, DrawableGate, IOGate } from "../IOGate";
 import { And } from "./And";
 import { Not } from "./Not";
 import { Or } from "./Or";
@@ -21,23 +21,23 @@ class XOr extends Component {
 
 		const or = new Or('OR', this)
 
-		const inputa = new IOGate('a', this)
-		const inputb = new IOGate('b', this)
+		const inputa = new IOGate('ina', this)
+		const inputb = new IOGate('inb', this)
 
-		const outputa = new IOGate('a', this)
+		const outputa = new IOGate('out', this)
 
-		inputa.connect(anda.inputs[0])
-		inputb.connect(nota.inputs[0])
-		nota.outputs[0].connect(anda.inputs[1])
+		const conn1 = inputa.connect(anda.inputs[0])
+		const conn2 = inputb.connect(nota.inputs[0])
+		const conn3 = nota.outputs[0].connect(anda.inputs[1])
 
-		inputa.connect(notb.inputs[0])
-		notb.outputs[0].connect(andb.inputs[0])
-		inputb.connect(andb.inputs[1])
+		const conn4 = inputa.connect(notb.inputs[0])
+		const conn5 = notb.outputs[0].connect(andb.inputs[0])
+		const conn6 = inputb.connect(andb.inputs[1])
 
-		anda.outputs[0].connect(or.inputs[0])
-		andb.outputs[0].connect(or.inputs[1])
+		const conn7 = anda.outputs[0].connect(or.inputs[0])
+		const conn8 = andb.outputs[0].connect(or.inputs[1])
 
-		or.outputs[0].connect(outputa)
+		const conn9 = or.outputs[0].connect(outputa)
 
 		this.inputs = [inputa, inputb]
 		this.outputs = [outputa]
@@ -89,6 +89,16 @@ class XOr extends Component {
 		notBDC.setPosition(thirdPos)
 		andBDC.setPosition(fourthPos)
 		orDC.setPosition(fifthPos)
+
+		new DrawableConnection(conn1!)
+		new DrawableConnection(conn2!)
+		new DrawableConnection(conn3!)
+		new DrawableConnection(conn4!)
+		new DrawableConnection(conn5!)
+		new DrawableConnection(conn6!)
+		new DrawableConnection(conn7!)
+		new DrawableConnection(conn8!)
+		new DrawableConnection(conn9!)
 	}
 }
 

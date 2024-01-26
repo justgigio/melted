@@ -1,20 +1,19 @@
 <script setup lang="ts">
-  import type { DrawableComponent, Connection } from '@/models/Component'
-  import IOConnection from './IOConnection.vue'
-  
-  import { computed } from 'vue'
 
-  const props = defineProps<{
-    drawableComponent: DrawableComponent
+  import type { DrawableConnection } from '@/models/IOGate';
+  import IOConnection from './IOConnection.vue'
+
+  defineProps<{
+    drawableConnections: DrawableConnection[]
   }>()
 
-  const connections = computed<Connection[]>(() => props.drawableComponent.getConnections())
-
-  const getKey = (conn: Connection): string => {
-    return `${props.drawableComponent.component.name}:${conn.a.gate.label}>${conn.b.gate.label}`
+  const getKey = (dConn: DrawableConnection): string => {
+    const componentA = dConn.connection.a.gate.component
+    const componentB = dConn.connection.b.gate.component
+    return `${componentA.name}:${dConn.connection.a.gate.label}>${componentB.name}:${dConn.connection.b.gate.label}`
   }
 
 </script>
 <template>
-  <IOConnection v-for="conn in connections" :connection="conn" :key="getKey(conn)" />
+  <IOConnection v-for="dConn in drawableConnections" :drawable-connection="dConn" :key="getKey(dConn)" />
 </template>

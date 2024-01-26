@@ -1,11 +1,5 @@
-import { IOGate, Pin } from "./IOGate"
-import { BOARD_DEFAULT_COLOR, BOARD_MARGIN, BOARD_STROKE_WIDTH, CHILD_COMPONENT_SIZE, CHILD_GATE_RADIUS, COMPONENT_DEFAULT_COLOR, ROOT_COMPONENT_SIZE, ROOT_GATE_RADIUS, STROKE_COLOR, TEXT_PRIMARY_COLOR } from "./constants"
-
-
-type Connection = {
-  a: Pin
-  b: Pin
-}
+import { IOGate, IOState, type Connection, DrawableConnection} from "./IOGate"
+import { BOARD_DEFAULT_COLOR, BOARD_MARGIN, BOARD_STROKE_WIDTH, CHILD_COMPONENT_SIZE, CHILD_GATE_RADIUS, COMPONENT_DEFAULT_COLOR, CONNECTION_STROKE_WIDTH, ROOT_COMPONENT_SIZE, ROOT_GATE_RADIUS, STROKE_COLOR, TEXT_PRIMARY_COLOR } from "./constants"
 
 
 abstract class Component {
@@ -30,26 +24,38 @@ abstract class Component {
   public isRoot() :boolean {
     return this.parent === undefined
   }
+
+  public start() {
+    this.inputs.forEach((gate) => {
+      gate.start()
+      gate.forceState(IOState.LOW)
+    })
+  }
+
+  public stop() {
+    this.inputs.forEach(gate => gate.stop())
+  }
 }
 
 
 class DrawableComponent {
 
-  component: Component
-  position: Position
-  size: Size
-  textColor: string = TEXT_PRIMARY_COLOR
-  fillColor: string = COMPONENT_DEFAULT_COLOR
-  strokeColor: string = STROKE_COLOR
-  strokeWidth: number = BOARD_STROKE_WIDTH / 2
+  public component: Component
+  public position: Position
+  public size: Size
+  public textColor: string = TEXT_PRIMARY_COLOR
+  public fillColor: string = COMPONENT_DEFAULT_COLOR
+  public strokeColor: string = STROKE_COLOR
+  public strokeWidth: number = BOARD_STROKE_WIDTH / 2
 
   constructor(component: Component, position?: Position, size?: Size) {
     component.setGraphic(this)
-    this.component = new Proxy(component, { set: (target, property, value) => {
-      Object.assign(target, {[property]: value})
-      this.update()
-      return true
-    }})
+    // this.component = new Proxy(component, { set: (target, property, value) => {
+    //   Object.assign(target, {[property]: value})
+    //   this.update()
+    //   return true
+    // }})
+    this.component = component
 
     if (position !== undefined) {
       this.position = position
@@ -76,23 +82,23 @@ class DrawableComponent {
     this.component.parent?.graphic?.update()
   }
 
-  public getConnections(): Connection[] {
-    let cons: Connection[] = []
+  public getConnections(): DrawableConnection[] {
+    let cons: DrawableConnection[] = []
 
-    this.component.inputs.forEach((input) => {
-      const iCons = input.out.connections
-      cons = cons.concat(iCons.map(con => <Connection>{a: input.out, b: con}))
-    })
-
-    this.component.components.forEach((comp) => {
-
-      comp.outputs.forEach((input) => {
-        const oCons = input.out.connections
-        cons = cons.concat(oCons.map(con => <Connection>{a: input.out, b: con}))
+    if (this.component.isRoot()) {
+      this.component.inputs.forEach((input) => {
+        cons = cons.concat(input.out.connections.map(conn => conn.graphic!))
       })
-    })
-
+  
+      this.component.components.forEach((comp) => {
+        comp.outputs.forEach((input) => {
+          cons = cons.concat(input.out.connections.map(conn => conn.graphic!))
+        })
+      })
+  
+    }
     return cons
+
   }
 
   public setColor(color: string) {
@@ -152,4 +158,3 @@ class DrawableComponent {
 }
 
 export { Component, DrawableComponent }
-export type { Connection }

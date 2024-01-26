@@ -1,11 +1,8 @@
 <script setup lang="ts">
-  import { Runner } from '@/Runner';
 
   import { useComponentsStore } from '@/stores/components'
 
   import ComponentBoard from './circuit/ComponentBoard.vue';
-
-  import { IOState } from '@/models/IOGate';
 
   const props = defineProps<{
     componentId: string
@@ -18,13 +15,7 @@
   const store = useComponentsStore()
 
   const component = store.getComponentById(props.componentId)!
-
-  component.inputs.forEach((gate) => gate.forceState(IOState.LOW))
-
-  const runner = Runner.getInstance()
-  runner.setComponent(component)
-  
-  runner.run()
+  component.start()
 
 </script>
 

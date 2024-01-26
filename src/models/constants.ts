@@ -8,6 +8,7 @@ export const GATE_DEFAULT_COLOR: string = "red"
 export const GATE_STROKE_WIDTH: number = 2
 export const GATE_DISCONNECTED_COLOR: string = "black"
 export const GATE_LOW_STATE_COLOR: string = "#181818"
+export const CONNECTION_STROKE_WIDTH: number = 4
 export const STROKE_COLOR: string = "black"
 export const TEXT_PRIMARY_COLOR: string = "white"
 

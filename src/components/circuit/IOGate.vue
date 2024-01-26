@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-  import { IOGate, IOState, DrawableGate } from '@/models/IOGate';
+  import { IOState, DrawableGate } from '@/models/IOGate';
   import type { CircleConfig } from 'konva/lib/shapes/Circle';
   import type { TextConfig } from 'konva/lib/shapes/Text';
 
@@ -14,17 +14,18 @@
 
   const { x, y } = props.drawableGate.position
 
-  const fill = computed<string>(() => props.drawableGate.getColor())
-
-  const configCircle: CircleConfig = reactive({
-    x,
-    y,
-    radius: props.drawableGate.size.width / 2,
-    fill: fill,
+  const configCircle: CircleConfig = computed(() => {
+    return {
+      x,
+      y,
+      radius: props.drawableGate.size.width / 2,
+      fill: props.drawableGate.getColor(),
+    }
   })
 
   let textPosition = {x: x + 8, y: y - 6}
   let fontSize = 11
+  let align = "left"
 
   if (props.drawableGate.gate.component.isRoot()) {
     textPosition = {x: x + 10, y: y - 22}
@@ -32,7 +33,8 @@
   }
 
   if (props.isOutput) {
-    textPosition.x -= fontSize + 12 
+    textPosition.x -= 200 + fontSize + 5
+    align = "right"
   }
 
   const configText: TextConfig = reactive({
@@ -40,7 +42,9 @@
     y: textPosition.y,
     fill: props.drawableGate.gate.component.graphic?.textColor,
     text: props.drawableGate.gate.label,
-    fontSize: fontSize
+    fontSize: fontSize,
+    align: align,
+    width: 200
   })
 
   const circleClick = () => {
@@ -57,7 +61,7 @@
 </script>
 
 <template>
-  <v-circle :config="configCircle" @click="circleClick"></v-circle>
+  <v-circle :config="configCircle" @click="circleClick" ></v-circle>
   <v-text :config="configText"></v-text>
 </template>
 

@@ -1,5 +1,5 @@
 import { Component } from "./Component"
-import { CHILD_GATE_RADIUS, GATE_DEFAULT_COLOR, GATE_DISCONNECTED_COLOR, GATE_LOW_STATE_COLOR, ROOT_GATE_RADIUS, STROKE_COLOR } from "./constants"
+import { CHILD_GATE_RADIUS, CONNECTION_STROKE_WIDTH, GATE_DEFAULT_COLOR, GATE_DISCONNECTED_COLOR, GATE_LOW_STATE_COLOR, ROOT_GATE_RADIUS, STROKE_COLOR } from "./constants"
 
 
 enum IOState {
@@ -10,27 +10,84 @@ enum IOState {
 
 
 class Pin {
-  public connections: Pin[] = []
-  private value: Number = 1
+  public connections: Connection[] = []
   public gate: IOGate
 
   constructor(gate: IOGate) {
     this.gate = gate
   }
 
-  public connect(pin: Pin) {
-    if (!this.connections.includes(pin)) {
-      this.connections.push(pin)
+  public connect(pin: Pin): Connection | undefined {
+    const connBs = this.connections.map(conn => conn.b)
+    if (!connBs.includes(pin)) {
+      const conn = new Connection(this, pin)
+
+      this.connections.push(conn)
       pin.connect(this)
+
+      return conn
     }
   }
 
   public disconnect(pin: Pin) {
-    if (this.connections.includes(pin)) {
-      const pinIndex = this.connections.indexOf(pin)
+    const connBs = this.connections.map(conn => conn.b)
+    if (connBs.includes(pin)) {
+      const pinIndex = connBs.indexOf(pin)
       this.connections.splice(pinIndex, 1)
       pin.disconnect(this)
     }
+  }
+}
+
+
+class Connection {
+  public a: Pin
+  public b: Pin
+  public graphic?: DrawableConnection
+
+  constructor(a: Pin, b: Pin) {
+    this.a = a
+    this.b = b
+  }
+
+  public setGraphic(graphic: DrawableConnection) {
+    this.graphic = graphic
+  }
+}
+
+
+class DrawableConnection {
+  public connection: Connection
+  public strokeWidth: number = CONNECTION_STROKE_WIDTH
+  public middlePoints: Position[] = []
+  public startPoint: Position
+  public endPoint: Position
+
+  constructor(connection: Connection) {
+    connection.setGraphic(this)
+    this.connection = connection
+
+    this.startPoint = connection.a.gate.graphic!.position
+    this.endPoint = connection.b.gate.graphic!.position
+  }
+
+  public getPoints(): number[] {
+    const points = [this.startPoint.x, this.startPoint.y]
+
+    this.middlePoints.forEach(pos => {
+      points.push(pos.x, pos.y)
+    })
+
+    points.push(this.endPoint.x, this.endPoint.y)
+    return points
+  }
+
+  public getColor(): string {
+    return this.connection.a.gate.graphic!.getColor()
+  }
+
+  public setPath(path: Position[]) {
+    this.middlePoints = path
   }
 }
 
@@ -43,6 +100,7 @@ class DrawableGate {
   public lowStateColor: string = GATE_LOW_STATE_COLOR
   public diconnectedColor: string = GATE_DISCONNECTED_COLOR
   public strokeColor: string = STROKE_COLOR
+
 
   constructor(gate: IOGate, position?: Position, size?: Size) {
     gate.setGraphic(this)
@@ -65,21 +123,17 @@ class DrawableGate {
   }
 
   public getColor(): string {
-    switch (this.gate.getState()) {
+    const state = this.gate.getState()
+    switch (state) {
       case IOState.LOW:
         return this.lowStateColor
       case IOState.HI:
-        return this.getHighStateColor()
+        return this.hiStateColor
     }
     return this.diconnectedColor
   }
 
-  private getHighStateColor(): string {
-    const onInputs = this.gate.in.connections.filter(pin => pin.gate.getState() === IOState.HI)
-
-    if (onInputs.length === 1) {
-      return onInputs[0].gate.graphic!.getHighStateColor()
-    }
+  public get hiStateColor(): string {
     return this.color
   }
 
@@ -110,6 +164,8 @@ class IOGate {
   public component: Component
   protected state: IOState = IOState.DISCONNECTED
   private forcedState?: IOState
+  private timeout?: ReturnType<typeof setTimeout>
+  public running: boolean = false
   public in: Pin
   public out: Pin
   public graphic?: DrawableGate
@@ -122,12 +178,13 @@ class IOGate {
     this.out = new Pin(this)
   }
 
-  public connect(gate: IOGate) {
-    this.out.connect(gate.in)
+  public connect(gate: IOGate): Connection | undefined {
+    return this.out.connect(gate.in)
   }
 
   public forceState(state : IOState) {
     this.forcedState = state
+    this.run()
   }
 
   public releaseState() {
@@ -145,21 +202,52 @@ class IOGate {
     return this.state
   }
 
-  public run(): IOGate[] {
-    const inStates: IOState[] = this.in.connections.map((pin: Pin) => pin.gate.getState())
+  public isHIState(): boolean {
+    return this.getState() === IOState.HI
+  }
 
-    let state: IOState = IOState.DISCONNECTED
+  public isLOWState(): boolean {
+    return this.getState() === IOState.LOW
+  }
 
-    if (inStates.includes(IOState.LOW)) {
-      state = IOState.LOW 
+  public start() {
+    if (!this.running) {
+      this.running = true
+      this.out.connections.forEach(conn => conn.b.gate.start())
     }
-    if (inStates.includes(IOState.HI)) {
-      state = IOState.HI
+  }
+
+  public run() {
+    if (this.running) {
+
+      const inStates: IOState[] = this.in.connections.map(conn => conn.b.gate.getState())
+
+  
+      let state: IOState = IOState.DISCONNECTED
+  
+      if (inStates.includes(IOState.LOW)) {
+        state = IOState.LOW 
+      }
+      if (inStates.includes(IOState.HI)) {
+        state = IOState.HI
+      }
+  
+      this.setState(state)
+  
+      clearTimeout(this.timeout)
+      this.running = true
+      this.timeout = setTimeout(() => {
+        this.out.connections.forEach(conn => conn.b.gate.run())
+      }, 1)
     }
+  }
 
-    this.setState(state)
-
-    return this.out.connections.map((pin: Pin) => pin.gate)
+  public stop() {
+    if (this.running) {
+      clearTimeout(this.timeout)
+      this.running = false
+      this.out.connections.forEach(conn => conn.b.gate.stop())
+    }
   }
 
   public setGraphic(graphic: DrawableGate) {
@@ -167,4 +255,5 @@ class IOGate {
   }
 }
 
-export { IOGate, DrawableGate, IOState, Pin }
+export { IOGate, DrawableGate, DrawableConnection, IOState, Pin }
+export type { Connection }
