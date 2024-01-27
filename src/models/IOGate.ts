@@ -1,13 +1,19 @@
-import { Component } from "./Component"
-import { CHILD_GATE_RADIUS, CONNECTION_STROKE_WIDTH, GATE_DEFAULT_COLOR, GATE_DISCONNECTED_COLOR, GATE_LOW_STATE_COLOR, ROOT_GATE_RADIUS, STROKE_COLOR } from "./constants"
-
+import { Component } from './Component'
+import {
+  CHILD_GATE_RADIUS,
+  CONNECTION_STROKE_WIDTH,
+  GATE_DEFAULT_COLOR,
+  GATE_DISCONNECTED_COLOR,
+  GATE_LOW_STATE_COLOR,
+  ROOT_GATE_RADIUS,
+  STROKE_COLOR
+} from './constants'
 
 enum IOState {
   LOW,
   HI,
-  DISCONNECTED,
+  DISCONNECTED
 }
-
 
 class Pin {
   public connections: Connection[] = []
@@ -18,7 +24,7 @@ class Pin {
   }
 
   public connect(pin: Pin): Connection | undefined {
-    const connBs = this.connections.map(conn => conn.b)
+    const connBs = this.connections.map((conn) => conn.b)
     if (!connBs.includes(pin)) {
       const conn = new Connection(this, pin)
 
@@ -30,7 +36,7 @@ class Pin {
   }
 
   public disconnect(pin: Pin) {
-    const connBs = this.connections.map(conn => conn.b)
+    const connBs = this.connections.map((conn) => conn.b)
     if (connBs.includes(pin)) {
       const pinIndex = connBs.indexOf(pin)
       this.connections.splice(pinIndex, 1)
@@ -38,7 +44,6 @@ class Pin {
     }
   }
 }
-
 
 class Connection {
   public a: Pin
@@ -54,7 +59,6 @@ class Connection {
     this.graphic = graphic
   }
 }
-
 
 class DrawableConnection {
   public connection: Connection
@@ -74,7 +78,7 @@ class DrawableConnection {
   public getPoints(): number[] {
     const points = [this.startPoint.x, this.startPoint.y]
 
-    this.middlePoints.forEach(pos => {
+    this.middlePoints.forEach((pos) => {
       points.push(pos.x, pos.y)
     })
 
@@ -91,7 +95,6 @@ class DrawableConnection {
   }
 }
 
-
 class DrawableGate {
   public gate: IOGate
   public position: Position
@@ -101,7 +104,6 @@ class DrawableGate {
   public diconnectedColor: string = GATE_DISCONNECTED_COLOR
   public strokeColor: string = STROKE_COLOR
 
-
   constructor(gate: IOGate, position?: Position, size?: Size) {
     gate.setGraphic(this)
     this.gate = gate
@@ -109,7 +111,7 @@ class DrawableGate {
     if (position !== undefined) {
       this.position = position
     } else {
-      this.position = {x: 0, y: 0}
+      this.position = { x: 0, y: 0 }
     }
     if (size !== undefined) {
       this.size = size
@@ -146,7 +148,7 @@ class DrawableGate {
   }
 
   private calculateSize(): Size {
-    let width = CHILD_GATE_RADIUS * 2 
+    let width = CHILD_GATE_RADIUS * 2
     let height = CHILD_GATE_RADIUS * 2
 
     if (this.gate.component.isRoot()) {
@@ -154,10 +156,9 @@ class DrawableGate {
       height = ROOT_GATE_RADIUS * 2
     }
 
-    return {width, height}
+    return { width, height }
   }
 }
-
 
 class IOGate {
   public label: string
@@ -170,7 +171,7 @@ class IOGate {
   public out: Pin
   public graphic?: DrawableGate
 
-  constructor(label:string, component: Component) {
+  constructor(label: string, component: Component) {
     this.label = label
     this.component = component
 
@@ -182,7 +183,7 @@ class IOGate {
     return this.out.connect(gate.in)
   }
 
-  public forceState(state : IOState) {
+  public forceState(state: IOState) {
     this.forcedState = state
     this.run()
   }
@@ -213,31 +214,29 @@ class IOGate {
   public start() {
     if (!this.running) {
       this.running = true
-      this.out.connections.forEach(conn => conn.b.gate.start())
+      this.out.connections.forEach((conn) => conn.b.gate.start())
     }
   }
 
   public run() {
     if (this.running) {
+      const inStates: IOState[] = this.in.connections.map((conn) => conn.b.gate.getState())
 
-      const inStates: IOState[] = this.in.connections.map(conn => conn.b.gate.getState())
-
-  
       let state: IOState = IOState.DISCONNECTED
-  
+
       if (inStates.includes(IOState.LOW)) {
-        state = IOState.LOW 
+        state = IOState.LOW
       }
       if (inStates.includes(IOState.HI)) {
         state = IOState.HI
       }
-  
+
       this.setState(state)
-  
+
       clearTimeout(this.timeout)
       this.running = true
       this.timeout = setTimeout(() => {
-        this.out.connections.forEach(conn => conn.b.gate.run())
+        this.out.connections.forEach((conn) => conn.b.gate.run())
       }, 1)
     }
   }
@@ -246,7 +245,7 @@ class IOGate {
     if (this.running) {
       clearTimeout(this.timeout)
       this.running = false
-      this.out.connections.forEach(conn => conn.b.gate.stop())
+      this.out.connections.forEach((conn) => conn.b.gate.stop())
     }
   }
 

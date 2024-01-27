@@ -12,9 +12,6 @@
     "noEmit": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "types": ["node"],
-    "paths": {
-      "*": ["./src/types/*.d.ts"]
-    }
+    "types": ["node"]
   }
 }

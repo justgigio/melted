@@ -12,6 +12,9 @@
     },
     {
       "path": "./nightwatch/tsconfig.json"
+    },
+    {
+      "path": "./tsconfig.custom.json"
     }
-  ],
+  ]
 }

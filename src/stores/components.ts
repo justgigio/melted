@@ -1,11 +1,10 @@
 import { defineStore } from 'pinia'
 import { Component } from '@/models/Component'
 
-
 export const useComponentsStore = defineStore('components', {
   state: () => {
     return {
-      components: {} as { [key: string]: Component },
+      components: {} as { [key: string]: Component }
     }
   },
   getters: {},

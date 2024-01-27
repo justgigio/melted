@@ -1,0 +1,18 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "composite": true,
+    "noEmit": true,
+    "lib": ["ESNext", "dom"],
+    "types": ["node", "vite/client"],
+    "paths": {
+      "@/*": ["./src/*"],
+      // "*": ["./src/types/*.d.ts"]
+    }
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["./src/assets/**/*"],
+}

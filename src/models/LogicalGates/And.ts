@@ -1,10 +1,9 @@
-import { Component, DrawableComponent } from "../Component";
-import { DrawableConnection, DrawableGate, IOGate, IOState, Pin } from "../IOGate";
-
+import { Component, DrawableComponent } from '../Component'
+import { DrawableConnection, DrawableGate, IOGate, IOState, Pin } from '../IOGate'
 
 class AndIOGate extends IOGate {
   public run() {
-    const inStates: IOState[] = this.in.connections.map(conn => conn.b.gate.getState())
+    const inStates: IOState[] = this.in.connections.map((conn) => conn.b.gate.getState())
 
     let state: IOState = IOState.DISCONNECTED
 
@@ -22,19 +21,18 @@ class AndIOGate extends IOGate {
 
     this.setState(state)
 
-    this.out.connections.forEach(conn => setTimeout(() => conn.b.gate.run(), 1))
+    this.out.connections.forEach((conn) => setTimeout(() => conn.b.gate.run(), 1))
   }
 }
-
 
 class And extends Component {
   inputs: IOGate[]
   outputs: IOGate[]
   components: Component[] = []
 
-  constructor(name: string, parent?: Component){
+  constructor(name: string, parent?: Component) {
     super(name, parent)
-    
+
     const inputa = new IOGate('ina', this)
     const inputb = new IOGate('inb', this)
 
@@ -48,8 +46,8 @@ class And extends Component {
     this.outputs = [outputa]
 
     new DrawableGate(inputa)
-		new DrawableGate(inputb)
-		new DrawableGate(outputa)
+    new DrawableGate(inputb)
+    new DrawableGate(outputa)
 
     new DrawableComponent(this)
 

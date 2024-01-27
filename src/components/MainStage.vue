@@ -1,22 +1,20 @@
 <script setup lang="ts">
+import { useComponentsStore } from '@/stores/components'
 
-  import { useComponentsStore } from '@/stores/components'
+import ComponentBoard from './circuit/ComponentBoard.vue'
 
-  import ComponentBoard from './circuit/ComponentBoard.vue';
+const props = defineProps<{
+  componentId: string
+  width: Number
+  height: Number
+}>()
 
-  const props = defineProps<{
-    componentId: string
-    width: Number
-    height: Number
-  }>()
+const configKonva = { ...props }
 
-  const configKonva = {...props}
+const store = useComponentsStore()
 
-  const store = useComponentsStore()
-
-  const component = store.getComponentById(props.componentId)!
-  component.start()
-
+const component = store.getComponentById(props.componentId)!
+component.start()
 </script>
 
 <template>
@@ -27,6 +25,4 @@
   </v-stage>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

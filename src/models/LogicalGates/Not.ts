@@ -1,6 +1,5 @@
-import { Component, DrawableComponent } from "../Component";
-import { DrawableConnection, DrawableGate, IOGate, IOState } from "../IOGate";
-
+import { Component, DrawableComponent } from '../Component'
+import { DrawableConnection, DrawableGate, IOGate, IOState } from '../IOGate'
 
 class NotIOGate extends IOGate {
   protected setState(state: IOState): void {
@@ -14,13 +13,12 @@ class NotIOGate extends IOGate {
   }
 }
 
-
 class Not extends Component {
   inputs: IOGate[]
   outputs: IOGate[]
   components: Component[] = []
 
-  constructor(name: string, parent?: Component){
+  constructor(name: string, parent?: Component) {
     super(name, parent)
 
     const inputa = new IOGate('in', this)
@@ -34,7 +32,7 @@ class Not extends Component {
     this.outputs = [outputa]
 
     new DrawableGate(inputa)
-		new DrawableGate(outputa)
+    new DrawableGate(outputa)
 
     new DrawableComponent(this)
 

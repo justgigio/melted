@@ -1,83 +1,80 @@
-<script setup lang="tsx">
+<script setup lang="ts">
+import { computed, reactive } from 'vue'
 
-  import { computed, reactive } from 'vue'
+import type { RectConfig } from 'konva/lib/shapes/Rect'
+import type { TextConfig } from 'konva/lib/shapes/Text'
 
-  import type { RectConfig } from 'konva/lib/shapes/Rect'
-  import type { TextConfig } from 'konva/lib/shapes/Text'
+import type { Component, DrawableComponent } from '@/models/Component'
+import type { DrawableGate, IOGate } from '@/models/IOGate'
 
-  import type { DrawableComponent } from '@/models/Component'
-  import type { DrawableGate } from '@/models/IOGate'
-  
-  import ComponentComponents from './ComponentComponents.vue'
-  import ComponentConnections from './ComponentConnections.vue'
-  import ComponentInputs from './ComponentInputs.vue'
-  import ComponentOutputs from './ComponentOutputs.vue'
+import ComponentComponents from './ComponentComponents.vue'
+import ComponentConnections from './ComponentConnections.vue'
+import ComponentInputs from './ComponentInputs.vue'
+import ComponentOutputs from './ComponentOutputs.vue'
 
+const props = defineProps<{
+  drawableComponent: DrawableComponent
+}>()
 
-  const props = defineProps<{
-    drawableComponent: DrawableComponent
-  }>()
+const { position } = props.drawableComponent
+const { x, y } = position
 
-  const { position } = props.drawableComponent
-  const { x, y } = position
+const boardWidth: number = props.drawableComponent.size.width
+const boardHeight: number = props.drawableComponent.size.height
+const { fillColor, strokeColor, strokeWidth } = props.drawableComponent
 
-  const boardWidth: number = props.drawableComponent.size.width
-  const boardHeight: number = props.drawableComponent.size.height
-  const {fillColor, strokeColor, strokeWidth} = props.drawableComponent
+const configRect: RectConfig = reactive({
+  x,
+  y,
+  width: boardWidth,
+  height: boardHeight,
+  fill: fillColor,
+  stroke: strokeColor,
+  strokeWidth: strokeWidth
+})
 
-  const configRect: RectConfig = reactive({
-    x,
-    y,
-    width: boardWidth,
-    height: boardHeight,
-    fill: fillColor,
-    stroke: strokeColor,
-    strokeWidth: strokeWidth,
-  })
+let textAlign = 'center'
+let textVAlign = 'middle'
 
-  let textAlign = 'center'
-  let textVAlign = 'middle'
+const isRoot = props.drawableComponent.component.isRoot()
 
-  const isRoot = props.drawableComponent.component.isRoot()
+if (isRoot) {
+  textAlign = 'left'
+  textVAlign = 'top'
+}
 
-  if (isRoot) {
-    textAlign = 'left'
-    textVAlign = 'top'
-  }
+const configText: TextConfig = reactive({
+  x: x,
+  y: y,
+  width: boardWidth,
+  height: boardHeight,
+  padding: 20,
+  align: textAlign,
+  verticalAlign: textVAlign,
+  fill: props.drawableComponent.textColor,
+  text: props.drawableComponent.component.name
+})
 
-  const configText: TextConfig = reactive({
-    x: x,
-    y: y,
-    width: boardWidth,
-    height: boardHeight,
-    padding: 20,
-    align: textAlign,
-    verticalAlign: textVAlign,
-    fill: props.drawableComponent.textColor,
-    text: props.drawableComponent.component.name
-  })
+const { inputs, outputs, components } = props.drawableComponent.component
 
-  const {inputs, outputs, components} = props.drawableComponent.component
+const drawableInputs = computed<DrawableGate[]>(() => inputs.map((gate: IOGate) => gate.graphic!))
+const drawableOutputs = computed<DrawableGate[]>(() => outputs.map((gate: IOGate) => gate.graphic!))
+const drawableComponents = computed<DrawableComponent[]>(() =>
+  components.map((comp: Component) => comp.graphic!)
+)
 
-  const drawableInputs = computed<DrawableGate[]>(() => inputs.map(gate => gate.graphic!))
-  const drawableOutputs = computed<DrawableGate[]>(() => outputs.map(gate => gate.graphic!))
-  const drawableComponents = computed<DrawableComponent[]>(() => components.map(comp => comp.graphic!))
-
-  const drawableConnections = props.drawableComponent.getConnections()
-
+const drawableConnections = props.drawableComponent.getConnections()
 </script>
 
 <template>
-    <v-group>
-      <v-rect :config="configRect" ></v-rect>
-      <v-text :config="configText" ></v-text>
-      <ComponentConnections :drawable-connections="drawableConnections" v-if="isRoot" />
-      <ComponentInputs :drawable-gates="drawableInputs" />
-      <ComponentOutputs :drawable-gates="drawableOutputs" />
-    </v-group>
-    <ComponentComponents :drawable-components="drawableComponents" v-if="isRoot" />
+  <v-group>
+    <v-rect :config="configRect"></v-rect>
+    <v-text :config="configText"></v-text>
+    <ComponentConnections :drawable-connections="drawableConnections" v-if="isRoot" />
+    <ComponentInputs :drawable-gates="drawableInputs" />
+    <ComponentOutputs :drawable-gates="drawableOutputs" />
+  </v-group>
+  <ComponentComponents :drawable-components="drawableComponents" v-if="isRoot" />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
