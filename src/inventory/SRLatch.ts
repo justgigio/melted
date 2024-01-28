@@ -1,8 +1,13 @@
-import { Component, DrawableComponent } from '../Component'
-import { DrawableConnection, DrawableGate, IOGate } from '../IOGate'
-import { And } from './And'
-import { Not } from './Not'
-import { Or } from './Or'
+import { Component } from '@/models/component/Component'
+import { IOGate } from '@/models/io_gate/IOGate'
+
+import { DrawableComponent } from '@/models/graphic/DrawableComponent'
+import { DrawableConnection } from '@/models/graphic/DrawableConnection'
+import { DrawableGate } from '@/models/graphic/DrawableGate'
+
+import { And } from './logical_gates/And'
+import { Not } from './logical_gates/Not'
+import { Or } from './logical_gates/Or'
 
 class SRLatch extends Component {
   inputs: IOGate[]

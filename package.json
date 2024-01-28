@@ -36,6 +36,7 @@
     "chromedriver": "^120.0.0",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
+    "fishery": "^2.2.2",
     "geckodriver": "^4.3.0",
     "jsdom": "^23.0.1",
     "nightwatch": "^3.3.5",

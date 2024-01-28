@@ -1,5 +1,9 @@
-import { Component, DrawableComponent } from '../Component'
-import { DrawableConnection, DrawableGate, IOGate } from '../IOGate'
+import { Component } from '@/models/component/Component'
+import { IOGate } from '@/models/io_gate/IOGate'
+
+import { DrawableComponent } from '@/models/graphic/DrawableComponent'
+import { DrawableConnection } from '@/models/graphic/DrawableConnection'
+import { DrawableGate } from '@/models/graphic/DrawableGate'
 
 class Or extends Component {
   inputs: IOGate[]

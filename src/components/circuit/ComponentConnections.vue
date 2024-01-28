@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { DrawableConnection } from '@/models/IOGate'
+import type { DrawableConnection } from '@/models/graphic/DrawableConnection'
+
 import IOConnection from './IOConnection.vue'
 
 defineProps<{

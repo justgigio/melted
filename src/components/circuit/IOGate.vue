@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { IOState, DrawableGate } from '@/models/IOGate'
 import type { CircleConfig } from 'konva/lib/shapes/Circle'
 import type { TextConfig } from 'konva/lib/shapes/Text'
+
+import { IOState } from '@/models/io_gate/IOGate'
+import type { DrawableGate } from '@/models/graphic/DrawableGate'
 
 import { reactive, computed } from 'vue'
 
@@ -49,10 +51,10 @@ const configText: TextConfig = reactive({
 const circleClick = () => {
   const gate = props.drawableGate.gate
   if (props.canClick) {
-    if (gate.getState() === IOState.LOW) {
-      gate.forceState(IOState.HI)
-    } else {
+    if (gate.isHIState()) {
       gate.forceState(IOState.LOW)
+    } else {
+      gate.forceState(IOState.HI)
     }
   }
 }

@@ -4,8 +4,10 @@ import { computed, reactive } from 'vue'
 import type { RectConfig } from 'konva/lib/shapes/Rect'
 import type { TextConfig } from 'konva/lib/shapes/Text'
 
-import type { Component, DrawableComponent } from '@/models/Component'
-import type { DrawableGate, IOGate } from '@/models/IOGate'
+import type { Component } from '@/models/component/Component'
+import type { IOGate } from '@/models/io_gate/IOGate'
+import type { DrawableComponent } from '@/models/graphic/DrawableComponent'
+import type { DrawableGate } from '@/models/graphic/DrawableGate'
 
 import ComponentComponents from './ComponentComponents.vue'
 import ComponentConnections from './ComponentConnections.vue'
@@ -78,3 +80,4 @@ const drawableConnections = props.drawableComponent.getConnections()
 </template>
 
 <style scoped></style>
+@/models/Component/Component

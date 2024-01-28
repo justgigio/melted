@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { DrawableGate } from '@/models/IOGate'
+
+import type { DrawableGate } from '@/models/graphic/DrawableGate'
+
 import IOGateVue from './IOGate.vue'
 
 const props = defineProps<{

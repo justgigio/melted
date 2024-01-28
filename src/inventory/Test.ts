@@ -1,7 +1,12 @@
-import { Component, DrawableComponent } from '../Component'
-import { DrawableConnection, DrawableGate, IOGate } from '../IOGate'
-import { XOr } from './XOr'
-import { And } from './And'
+import { Component } from '@/models/component/Component'
+
+import { DrawableComponent } from '@/models/graphic/DrawableComponent'
+import { DrawableConnection } from '@/models/graphic/DrawableConnection'
+import { DrawableGate } from '@/models/graphic/DrawableGate'
+import { IOGate } from '@/models/io_gate/IOGate'
+
+import { XOr } from './logical_gates/XOr'
+import { And } from './logical_gates/And'
 
 class Test extends Component {
   inputs: IOGate[]

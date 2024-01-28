@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { DrawableConnection } from '@/models/IOGate'
+
 import type { LineConfig } from 'konva/lib/shapes/Line'
+
+import type { DrawableConnection } from '@/models/graphic/DrawableConnection'
 
 const props = defineProps<{
   drawableConnection: DrawableConnection

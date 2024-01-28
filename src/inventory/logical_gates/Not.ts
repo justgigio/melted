@@ -1,5 +1,9 @@
-import { Component, DrawableComponent } from '../Component'
-import { DrawableConnection, DrawableGate, IOGate, IOState } from '../IOGate'
+import { Component } from '@/models/component/Component'
+import { IOGate, IOState } from '@/models/io_gate/IOGate'
+
+import { DrawableComponent } from '@/models/graphic/DrawableComponent'
+import { DrawableConnection } from '@/models/graphic/DrawableConnection'
+import { DrawableGate } from '@/models/graphic/DrawableGate'
 
 class NotIOGate extends IOGate {
   protected setState(state: IOState): void {

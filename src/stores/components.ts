@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { Component } from '@/models/Component'
+import { Component } from '@/models/component/Component'
 
 export const useComponentsStore = defineStore('components', {
   state: () => {

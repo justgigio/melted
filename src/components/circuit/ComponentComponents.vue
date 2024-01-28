@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DrawableComponent } from '@/models/Component'
+import type { DrawableComponent } from '@/models/graphic/DrawableComponent'
 import ComponentBoard from './ComponentBoard.vue'
 
 defineProps<{
@@ -13,3 +13,4 @@ defineProps<{
     :key="index + dComp.component.name"
   />
 </template>
+@/models/Component/Component
