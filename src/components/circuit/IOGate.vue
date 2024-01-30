@@ -56,6 +56,7 @@ const circleClick = () => {
     } else {
       gate.forceState(IOState.HI)
     }
+    gate.run()
   }
 }
 </script>

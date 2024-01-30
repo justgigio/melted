@@ -35,7 +35,6 @@ class IOGate {
 
   public forceState(state: IOState) {
     this.forcedState = state
-    this.run()
   }
 
   public releaseState() {

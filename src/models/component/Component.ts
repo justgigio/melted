@@ -26,6 +26,7 @@ abstract class Component {
     this.inputs.forEach((gate) => {
       gate.start()
       gate.forceState(IOState.LOW)
+      gate.run()
     })
   }
 

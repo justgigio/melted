@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest'
-import componentFactory from '../../factories/models/ComponentFactory'
+import componentFactory from '../../../factories/models/component/ComponentFactory'
 import type { Component } from '@/models/component/Component'
 
 interface LocalTestContext {
