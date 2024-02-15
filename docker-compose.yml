@@ -13,6 +13,7 @@ services:
     command: bash -c "yarn dev"
     ports:
       - "3000:3000"
+      - "51204:51204"
 
 # volumes:
 #   node_modules:

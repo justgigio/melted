@@ -2,7 +2,7 @@ import { Factory } from 'fishery'
 import { IOGate } from '@/models/io_gate/IOGate'
 import componentFactory from '../component/ComponentFactory'
 
-const iOGAteFactory = Factory.define<IOGate>(({params, associations}) => {
+const iOGateFactory = Factory.define<IOGate>(({params, associations}) => {
 
   const {label = "Dummy Gate"} = params
   const {component = componentFactory.build()} = associations
@@ -10,4 +10,4 @@ const iOGAteFactory = Factory.define<IOGate>(({params, associations}) => {
   return new IOGate(label, component)
 })
 
-export default iOGAteFactory
+export default iOGateFactory

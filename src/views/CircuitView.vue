@@ -10,7 +10,6 @@ import { NAnd } from '@/inventory/logical_gates/NAnd'
 import { Not } from '@/inventory/logical_gates/Not'
 import { Or } from '@/inventory/logical_gates/Or'
 import { XOr } from '@/inventory/logical_gates/XOr'
-import { Test } from '@/inventory/Test'
 import { SRLatch } from '@/inventory/SRLatch'
 import type { Component } from '@/models/component/Component'
 
@@ -19,7 +18,6 @@ const store = useComponentsStore()
 const availableComponents: { [key: string]: Component } = {}
 
 availableComponents['sr_latch'] = new SRLatch('SR Latch')
-availableComponents['test'] = new Test('Test')
 availableComponents['and'] = new And('AND')
 availableComponents['nand'] = new NAnd('NAND')
 availableComponents['not'] = new Not('NOT')
@@ -50,4 +48,3 @@ watch(componentId, (_newId, oldId) => {
 </template>
 
 <style></style>
-@/inventory/XOr@/inventory/Test@/models/Component/Component

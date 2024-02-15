@@ -1,0 +1,3050 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`IOGateVue > renders properly 1`] = `
+VueWrapper {
+  "__app": {
+    "_component": {
+      "name": "VTU_ROOT",
+      "render": [Function],
+      "setup": [Function],
+    },
+    "_container": <div
+      data-v-app=""
+    >
+      <anonymous-stub
+        __usestrictmode="false"
+        config="[object Object]"
+      />
+    </div>,
+    "_context": {
+      "app": [Circular],
+      "components": {
+        "IOGateVue": {
+          "__file": "/app/src/components/circuit/IOGate.vue",
+          "__name": "IOGate",
+          "props": {
+            "canClick": {
+              "required": false,
+              "type": [Function],
+            },
+            "drawableGate": {
+              "required": true,
+              "type": [Function],
+            },
+            "isOutput": {
+              "required": false,
+              "type": [Function],
+            },
+          },
+          "render": [Function],
+          "setup": [Function],
+        },
+        "transition": {
+          "name": "transition",
+        },
+        "transition-group": {
+          "name": "transition-group",
+        },
+        "vArc": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vArrow": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vCircle": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vEllipse": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vFastLayer": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vGroup": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vImage": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vLabel": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vLayer": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vLine": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vPath": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vRect": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vRegularPolygon": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vRing": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vShape": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vSprite": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vStage": {
+          "inheritAttrs": false,
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vStar": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vTag": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vText": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vTextPath": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vTransformer": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+        "vWedge": {
+          "props": {
+            "__useStrictMode": {
+              "type": [Function],
+            },
+            "config": {
+              "default": [Function],
+              "type": [Function],
+            },
+          },
+          "setup": [Function],
+        },
+      },
+      "config": {
+        "compilerOptions": {},
+        "errorHandler": undefined,
+        "globalProperties": {},
+        "isNativeTag": [Function],
+        "optionMergeStrategies": {},
+        "performance": false,
+        "warnHandler": undefined,
+      },
+      "directives": {},
+      "emitsCache": WeakMap {},
+      "mixins": [
+        {
+          "beforeCreate": [Function],
+        },
+      ],
+      "optionsCache": WeakMap {},
+      "propsCache": WeakMap {},
+      "provides": {},
+      "reload": [Function],
+    },
+    "_instance": {
+      "a": null,
+      "accessCache": {},
+      "appContext": {
+        "app": [Circular],
+        "components": {
+          "IOGateVue": {
+            "__file": "/app/src/components/circuit/IOGate.vue",
+            "__name": "IOGate",
+            "props": {
+              "canClick": {
+                "required": false,
+                "type": [Function],
+              },
+              "drawableGate": {
+                "required": true,
+                "type": [Function],
+              },
+              "isOutput": {
+                "required": false,
+                "type": [Function],
+              },
+            },
+            "render": [Function],
+            "setup": [Function],
+          },
+          "transition": {
+            "name": "transition",
+          },
+          "transition-group": {
+            "name": "transition-group",
+          },
+          "vArc": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vArrow": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vCircle": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vEllipse": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vFastLayer": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vGroup": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vImage": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vLabel": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vLayer": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vLine": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vPath": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vRect": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vRegularPolygon": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vRing": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vShape": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vSprite": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vStage": {
+            "inheritAttrs": false,
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vStar": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vTag": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vText": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vTextPath": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vTransformer": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+          "vWedge": {
+            "props": {
+              "__useStrictMode": {
+                "type": [Function],
+              },
+              "config": {
+                "default": [Function],
+                "type": [Function],
+              },
+            },
+            "setup": [Function],
+          },
+        },
+        "config": {
+          "compilerOptions": {},
+          "errorHandler": undefined,
+          "globalProperties": {},
+          "isNativeTag": [Function],
+          "optionMergeStrategies": {},
+          "performance": false,
+          "warnHandler": undefined,
+        },
+        "directives": {},
+        "emitsCache": WeakMap {},
+        "mixins": [
+          {
+            "beforeCreate": [Function],
+          },
+        ],
+        "optionsCache": WeakMap {},
+        "propsCache": WeakMap {},
+        "provides": {},
+        "reload": [Function],
+      },
+      "asyncDep": null,
+      "asyncResolved": false,
+      "attrs": {},
+      "attrsProxy": null,
+      "bc": null,
+      "bm": null,
+      "bu": null,
+      "bum": null,
+      "c": null,
+      "components": null,
+      "ctx": {
+        "VTU_COMPONENT": {
+          "dGate": DrawableGate {
+            "color": "red",
+            "diconnectedColor": "black",
+            "gate": IOGate {
+              "component": ConcreteComponent {
+                "components": [],
+                "graphic": undefined,
+                "inputs": [],
+                "name": "Dummy Component",
+                "outputs": [],
+                "parent": undefined,
+              },
+              "forcedState": undefined,
+              "graphic": [Circular],
+              "in": Pin {
+                "connections": [],
+                "gate": [Circular],
+              },
+              "label": "ina",
+              "out": Pin {
+                "connections": [],
+                "gate": [Circular],
+              },
+              "running": false,
+              "state": 2,
+              "timeout": undefined,
+            },
+            "lowStateColor": "#181818",
+            "position": {
+              "x": 0,
+              "y": 0,
+            },
+            "size": {
+              "height": 20,
+              "width": 20,
+            },
+            "strokeColor": "black",
+          },
+          "stage": {
+            "height": 400,
+            "width": 300,
+          },
+        },
+      },
+      "da": null,
+      "data": {},
+      "devtoolsRawSetupState": {
+        "VTU_COMPONENT": RefImpl {
+          "__v_isRef": true,
+          "__v_isShallow": false,
+          "_rawValue": {
+            "dGate": DrawableGate {
+              "color": "red",
+              "diconnectedColor": "black",
+              "gate": IOGate {
+                "component": ConcreteComponent {
+                  "components": [],
+                  "graphic": undefined,
+                  "inputs": [],
+                  "name": "Dummy Component",
+                  "outputs": [],
+                  "parent": undefined,
+                },
+                "forcedState": undefined,
+                "graphic": [Circular],
+                "in": Pin {
+                  "connections": [],
+                  "gate": [Circular],
+                },
+                "label": "ina",
+                "out": Pin {
+                  "connections": [],
+                  "gate": [Circular],
+                },
+                "running": false,
+                "state": 2,
+                "timeout": undefined,
+              },
+              "lowStateColor": "#181818",
+              "position": {
+                "x": 0,
+                "y": 0,
+              },
+              "size": {
+                "height": 20,
+                "width": 20,
+              },
+              "strokeColor": "black",
+            },
+            "stage": {
+              "height": 400,
+              "width": 300,
+            },
+          },
+          "_value": {
+            "dGate": DrawableGate {
+              "color": "red",
+              "diconnectedColor": "black",
+              "gate": IOGate {
+                "component": ConcreteComponent {
+                  "components": [],
+                  "graphic": undefined,
+                  "inputs": [],
+                  "name": "Dummy Component",
+                  "outputs": [],
+                  "parent": undefined,
+                },
+                "forcedState": undefined,
+                "graphic": [Circular],
+                "in": Pin {
+                  "connections": [],
+                  "gate": [Circular],
+                },
+                "label": "ina",
+                "out": Pin {
+                  "connections": [],
+                  "gate": [Circular],
+                },
+                "running": false,
+                "state": 2,
+                "timeout": undefined,
+              },
+              "lowStateColor": "#181818",
+              "position": {
+                "x": 0,
+                "y": 0,
+              },
+              "size": {
+                "height": 20,
+                "width": 20,
+              },
+              "strokeColor": "black",
+            },
+            "stage": {
+              "height": 400,
+              "width": 300,
+            },
+          },
+          "dep": undefined,
+        },
+      },
+      "directives": null,
+      "ec": null,
+      "effect": ReactiveEffect {
+        "_depsLength": 3,
+        "_dirtyLevel": 0,
+        "_runnings": 0,
+        "_shouldSchedule": false,
+        "_trackId": 1,
+        "active": true,
+        "allowRecurse": true,
+        "deps": [
+          Map {
+            [Circular] => 1,
+          },
+          Map {
+            [Circular] => 1,
+          },
+          Map {
+            [Circular] => 1,
+          },
+        ],
+        "fn": [Function],
+        "onTrack": undefined,
+        "onTrigger": undefined,
+        "scheduler": [Function],
+        "trigger": [Function],
+      },
+      "emit": [Function],
+      "emitsOptions": null,
+      "emitted": null,
+      "exposeProxy": null,
+      "exposed": null,
+      "inheritAttrs": undefined,
+      "isDeactivated": false,
+      "isMounted": true,
+      "isUnmounted": false,
+      "m": null,
+      "next": null,
+      "parent": null,
+      "props": {},
+      "propsDefaults": {},
+      "propsOptions": [
+        {},
+        [],
+      ],
+      "provides": {},
+      "proxy": {
+        "VTU_COMPONENT": {
+          "dGate": DrawableGate {
+            "color": "red",
+            "diconnectedColor": "black",
+            "gate": IOGate {
+              "component": ConcreteComponent {
+                "components": [],
+                "graphic": undefined,
+                "inputs": [],
+                "name": "Dummy Component",
+                "outputs": [],
+                "parent": undefined,
+              },
+              "forcedState": undefined,
+              "graphic": [Circular],
+              "in": Pin {
+                "connections": [],
+                "gate": [Circular],
+              },
+              "label": "ina",
+              "out": Pin {
+                "connections": [],
+                "gate": [Circular],
+              },
+              "running": false,
+              "state": 2,
+              "timeout": undefined,
+            },
+            "lowStateColor": "#181818",
+            "position": {
+              "x": 0,
+              "y": 0,
+            },
+            "size": {
+              "height": 20,
+              "width": 20,
+            },
+            "strokeColor": "black",
+          },
+          "stage": {
+            "height": 400,
+            "width": 300,
+          },
+        },
+      },
+      "refs": {
+        "VTU_COMPONENT": {
+          "dGate": DrawableGate {
+            "color": "red",
+            "diconnectedColor": "black",
+            "gate": IOGate {
+              "component": ConcreteComponent {
+                "components": [],
+                "graphic": undefined,
+                "inputs": [],
+                "name": "Dummy Component",
+                "outputs": [],
+                "parent": undefined,
+              },
+              "forcedState": undefined,
+              "graphic": [Circular],
+              "in": Pin {
+                "connections": [],
+                "gate": [Circular],
+              },
+              "label": "ina",
+              "out": Pin {
+                "connections": [],
+                "gate": [Circular],
+              },
+              "running": false,
+              "state": 2,
+              "timeout": undefined,
+            },
+            "lowStateColor": "#181818",
+            "position": {
+              "x": 0,
+              "y": 0,
+            },
+            "size": {
+              "height": 20,
+              "width": 20,
+            },
+            "strokeColor": "black",
+          },
+          "stage": {
+            "height": 400,
+            "width": 300,
+          },
+        },
+      },
+      "render": [Function],
+      "renderCache": [],
+      "root": [Circular],
+      "rtc": null,
+      "rtg": null,
+      "scope": EffectScope {
+        "_active": true,
+        "cleanups": [],
+        "detached": true,
+        "effects": [
+          ReactiveEffect {
+            "_depsLength": 3,
+            "_dirtyLevel": 0,
+            "_runnings": 0,
+            "_shouldSchedule": false,
+            "_trackId": 1,
+            "active": true,
+            "allowRecurse": true,
+            "deps": [
+              Map {
+                [Circular] => 1,
+              },
+              Map {
+                [Circular] => 1,
+              },
+              Map {
+                [Circular] => 1,
+              },
+            ],
+            "fn": [Function],
+            "onTrack": undefined,
+            "onTrigger": undefined,
+            "scheduler": [Function],
+            "trigger": [Function],
+          },
+        ],
+        "parent": undefined,
+      },
+      "setupContext": null,
+      "setupState": {
+        "VTU_COMPONENT": {
+          "dGate": DrawableGate {
+            "color": "red",
+            "diconnectedColor": "black",
+            "gate": IOGate {
+              "component": ConcreteComponent {
+                "components": [],
+                "graphic": undefined,
+                "inputs": [],
+                "name": "Dummy Component",
+                "outputs": [],
+                "parent": undefined,
+              },
+              "forcedState": undefined,
+              "graphic": [Circular],
+              "in": Pin {
+                "connections": [],
+                "gate": [Circular],
+              },
+              "label": "ina",
+              "out": Pin {
+                "connections": [],
+                "gate": [Circular],
+              },
+              "running": false,
+              "state": 2,
+              "timeout": undefined,
+            },
+            "lowStateColor": "#181818",
+            "position": {
+              "x": 0,
+              "y": 0,
+            },
+            "size": {
+              "height": 20,
+              "width": 20,
+            },
+            "strokeColor": "black",
+          },
+          "stage": {
+            "height": 400,
+            "width": 300,
+          },
+        },
+      },
+      "slots": {},
+      "slotsProxy": null,
+      "sp": null,
+      "subTree": {
+        "__v_isVNode": true,
+        "__v_skip": true,
+        "anchor": null,
+        "appContext": null,
+        "children": null,
+        "component": {
+          "a": null,
+          "accessCache": {
+            "@@__IMMUTABLE_ITERABLE__@@": 0,
+            "@@__IMMUTABLE_RECORD__@@": 0,
+            "__v_isReadonly": 0,
+            "__v_isRef": 0,
+            "__v_isShallow": 0,
+            "__v_raw": 0,
+            "__v_skip": 4,
+            "_isMockFunction": 0,
+            "constructor": 0,
+            "dGate": 2,
+            "stage": 2,
+            "toJSON": 0,
+            Symbol(Symbol.toStringTag): 0,
+          },
+          "appContext": {
+            "app": [Circular],
+            "components": {
+              "IOGateVue": {
+                "__file": "/app/src/components/circuit/IOGate.vue",
+                "__name": "IOGate",
+                "props": {
+                  "canClick": {
+                    "required": false,
+                    "type": [Function],
+                  },
+                  "drawableGate": {
+                    "required": true,
+                    "type": [Function],
+                  },
+                  "isOutput": {
+                    "required": false,
+                    "type": [Function],
+                  },
+                },
+                "render": [Function],
+                "setup": [Function],
+              },
+              "transition": {
+                "name": "transition",
+              },
+              "transition-group": {
+                "name": "transition-group",
+              },
+              "vArc": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vArrow": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vCircle": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vEllipse": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vFastLayer": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vGroup": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vImage": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vLabel": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vLayer": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vLine": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vPath": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vRect": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vRegularPolygon": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vRing": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vShape": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vSprite": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vStage": {
+                "inheritAttrs": false,
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vStar": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vTag": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vText": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vTextPath": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vTransformer": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "vWedge": {
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+            },
+            "config": {
+              "compilerOptions": {},
+              "errorHandler": undefined,
+              "globalProperties": {},
+              "isNativeTag": [Function],
+              "optionMergeStrategies": {},
+              "performance": false,
+              "warnHandler": undefined,
+            },
+            "directives": {},
+            "emitsCache": WeakMap {},
+            "mixins": [
+              {
+                "beforeCreate": [Function],
+              },
+            ],
+            "optionsCache": WeakMap {},
+            "propsCache": WeakMap {},
+            "provides": {},
+            "reload": [Function],
+          },
+          "asyncDep": null,
+          "asyncResolved": false,
+          "attrs": {},
+          "attrsProxy": null,
+          "bc": null,
+          "bm": null,
+          "bu": null,
+          "bum": null,
+          "c": null,
+          "components": {
+            "IOGateVue": {
+              "__file": "/app/src/components/circuit/IOGate.vue",
+              "__name": "IOGate",
+              "props": {
+                "canClick": {
+                  "required": false,
+                  "type": [Function],
+                },
+                "drawableGate": {
+                  "required": true,
+                  "type": [Function],
+                },
+                "isOutput": {
+                  "required": false,
+                  "type": [Function],
+                },
+              },
+              "render": [Function],
+              "setup": [Function],
+            },
+          },
+          "ctx": {
+            "dGate": DrawableGate {
+              "color": "red",
+              "diconnectedColor": "black",
+              "gate": IOGate {
+                "component": ConcreteComponent {
+                  "components": [],
+                  "graphic": undefined,
+                  "inputs": [],
+                  "name": "Dummy Component",
+                  "outputs": [],
+                  "parent": undefined,
+                },
+                "forcedState": undefined,
+                "graphic": [Circular],
+                "in": Pin {
+                  "connections": [],
+                  "gate": [Circular],
+                },
+                "label": "ina",
+                "out": Pin {
+                  "connections": [],
+                  "gate": [Circular],
+                },
+                "running": false,
+                "state": 2,
+                "timeout": undefined,
+              },
+              "lowStateColor": "#181818",
+              "position": {
+                "x": 0,
+                "y": 0,
+              },
+              "size": {
+                "height": 20,
+                "width": 20,
+              },
+              "strokeColor": "black",
+            },
+            "stage": {
+              "height": 400,
+              "width": 300,
+            },
+          },
+          "da": null,
+          "data": {
+            "dGate": DrawableGate {
+              "color": "red",
+              "diconnectedColor": "black",
+              "gate": IOGate {
+                "component": ConcreteComponent {
+                  "components": [],
+                  "graphic": undefined,
+                  "inputs": [],
+                  "name": "Dummy Component",
+                  "outputs": [],
+                  "parent": undefined,
+                },
+                "forcedState": undefined,
+                "graphic": [Circular],
+                "in": Pin {
+                  "connections": [],
+                  "gate": [Circular],
+                },
+                "label": "ina",
+                "out": Pin {
+                  "connections": [],
+                  "gate": [Circular],
+                },
+                "running": false,
+                "state": 2,
+                "timeout": undefined,
+              },
+              "lowStateColor": "#181818",
+              "position": {
+                "x": 0,
+                "y": 0,
+              },
+              "size": {
+                "height": 20,
+                "width": 20,
+              },
+              "strokeColor": "black",
+            },
+            "stage": {
+              "height": 400,
+              "width": 300,
+            },
+          },
+          "directives": null,
+          "ec": null,
+          "effect": ReactiveEffect {
+            "_depsLength": 1,
+            "_dirtyLevel": 0,
+            "_runnings": 0,
+            "_shouldSchedule": false,
+            "_trackId": 1,
+            "active": true,
+            "allowRecurse": true,
+            "deps": [
+              Map {
+                [Circular] => 1,
+              },
+            ],
+            "fn": [Function],
+            "onTrack": undefined,
+            "onTrigger": undefined,
+            "scheduler": [Function],
+            "trigger": [Function],
+          },
+          "emit": [Function],
+          "emitsOptions": null,
+          "emitted": null,
+          "exposeProxy": null,
+          "exposed": null,
+          "inheritAttrs": undefined,
+          "isDeactivated": false,
+          "isMounted": true,
+          "isUnmounted": false,
+          "m": null,
+          "next": null,
+          "parent": [Circular],
+          "props": {},
+          "propsDefaults": {},
+          "propsOptions": [
+            {},
+            [],
+          ],
+          "provides": {},
+          "proxy": {
+            "dGate": DrawableGate {
+              "color": "red",
+              "diconnectedColor": "black",
+              "gate": IOGate {
+                "component": ConcreteComponent {
+                  "components": [],
+                  "graphic": undefined,
+                  "inputs": [],
+                  "name": "Dummy Component",
+                  "outputs": [],
+                  "parent": undefined,
+                },
+                "forcedState": undefined,
+                "graphic": [Circular],
+                "in": Pin {
+                  "connections": [],
+                  "gate": [Circular],
+                },
+                "label": "ina",
+                "out": Pin {
+                  "connections": [],
+                  "gate": [Circular],
+                },
+                "running": false,
+                "state": 2,
+                "timeout": undefined,
+              },
+              "lowStateColor": "#181818",
+              "position": {
+                "x": 0,
+                "y": 0,
+              },
+              "size": {
+                "height": 20,
+                "width": 20,
+              },
+              "strokeColor": "black",
+            },
+            "stage": {
+              "height": 400,
+              "width": 300,
+            },
+          },
+          "refs": {},
+          "render": [Function],
+          "renderCache": [],
+          "root": [Circular],
+          "rtc": null,
+          "rtg": null,
+          "scope": EffectScope {
+            "_active": true,
+            "cleanups": [],
+            "detached": true,
+            "effects": [
+              ReactiveEffect {
+                "_depsLength": 1,
+                "_dirtyLevel": 0,
+                "_runnings": 0,
+                "_shouldSchedule": false,
+                "_trackId": 1,
+                "active": true,
+                "allowRecurse": true,
+                "deps": [
+                  Map {
+                    [Circular] => 1,
+                  },
+                ],
+                "fn": [Function],
+                "onTrack": undefined,
+                "onTrigger": undefined,
+                "scheduler": [Function],
+                "trigger": [Function],
+              },
+            ],
+            "parent": undefined,
+          },
+          "setupContext": null,
+          "setupState": {},
+          "slots": {},
+          "slotsProxy": null,
+          "sp": null,
+          "subTree": {
+            "__v_isVNode": true,
+            "__v_skip": true,
+            "anchor": null,
+            "appContext": null,
+            "children": {
+              "default": [Function],
+            },
+            "component": {
+              "a": null,
+              "accessCache": {},
+              "appContext": {
+                "app": [Circular],
+                "components": {
+                  "IOGateVue": {
+                    "__file": "/app/src/components/circuit/IOGate.vue",
+                    "__name": "IOGate",
+                    "props": {
+                      "canClick": {
+                        "required": false,
+                        "type": [Function],
+                      },
+                      "drawableGate": {
+                        "required": true,
+                        "type": [Function],
+                      },
+                      "isOutput": {
+                        "required": false,
+                        "type": [Function],
+                      },
+                    },
+                    "render": [Function],
+                    "setup": [Function],
+                  },
+                  "transition": {
+                    "name": "transition",
+                  },
+                  "transition-group": {
+                    "name": "transition-group",
+                  },
+                  "vArc": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vArrow": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vCircle": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vEllipse": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vFastLayer": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vGroup": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vImage": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vLabel": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vLayer": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vLine": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vPath": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vRect": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vRegularPolygon": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vRing": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vShape": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vSprite": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vStage": {
+                    "inheritAttrs": false,
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vStar": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vTag": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vText": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vTextPath": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vTransformer": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                  "vWedge": {
+                    "props": {
+                      "__useStrictMode": {
+                        "type": [Function],
+                      },
+                      "config": {
+                        "default": [Function],
+                        "type": [Function],
+                      },
+                    },
+                    "setup": [Function],
+                  },
+                },
+                "config": {
+                  "compilerOptions": {},
+                  "errorHandler": undefined,
+                  "globalProperties": {},
+                  "isNativeTag": [Function],
+                  "optionMergeStrategies": {},
+                  "performance": false,
+                  "warnHandler": undefined,
+                },
+                "directives": {},
+                "emitsCache": WeakMap {},
+                "mixins": [
+                  {
+                    "beforeCreate": [Function],
+                  },
+                ],
+                "optionsCache": WeakMap {},
+                "propsCache": WeakMap {},
+                "provides": {},
+                "reload": [Function],
+              },
+              "asyncDep": null,
+              "asyncResolved": false,
+              "attrs": {},
+              "attrsProxy": null,
+              "bc": null,
+              "bm": null,
+              "bu": null,
+              "bum": null,
+              "c": null,
+              "components": null,
+              "ctx": {
+                "__useStrictMode": false,
+                "config": {
+                  "height": 400,
+                  "width": 300,
+                },
+              },
+              "da": null,
+              "data": {},
+              "directives": null,
+              "ec": null,
+              "effect": ReactiveEffect {
+                "_depsLength": 4,
+                "_dirtyLevel": 0,
+                "_runnings": 0,
+                "_shouldSchedule": false,
+                "_trackId": 1,
+                "active": true,
+                "allowRecurse": true,
+                "deps": [
+                  Map {
+                    [Circular] => 1,
+                  },
+                  Map {
+                    [Circular] => 1,
+                  },
+                  Map {
+                    [Circular] => 1,
+                  },
+                  Map {
+                    [Circular] => 1,
+                  },
+                ],
+                "fn": [Function],
+                "onTrack": undefined,
+                "onTrigger": undefined,
+                "scheduler": [Function],
+                "trigger": [Function],
+              },
+              "emit": [Function],
+              "emitsOptions": null,
+              "emitted": null,
+              "exposeProxy": null,
+              "exposed": null,
+              "inheritAttrs": undefined,
+              "isDeactivated": false,
+              "isMounted": true,
+              "isUnmounted": false,
+              "m": null,
+              "next": null,
+              "parent": [Circular],
+              "props": {
+                "__useStrictMode": false,
+                "config": {
+                  "height": 400,
+                  "width": 300,
+                },
+              },
+              "propsDefaults": {},
+              "propsOptions": [
+                {
+                  "__useStrictMode": {
+                    "0": true,
+                    "1": true,
+                    "type": [Function],
+                  },
+                  "config": {
+                    "0": false,
+                    "1": true,
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                [
+                  "config",
+                  "__useStrictMode",
+                ],
+              ],
+              "provides": {},
+              "proxy": {
+                "__useStrictMode": false,
+                "config": {
+                  "height": 400,
+                  "width": 300,
+                },
+              },
+              "refs": {},
+              "render": [Function],
+              "renderCache": [],
+              "root": [Circular],
+              "rtc": null,
+              "rtg": null,
+              "scope": EffectScope {
+                "_active": true,
+                "cleanups": [],
+                "detached": true,
+                "effects": [
+                  ReactiveEffect {
+                    "_depsLength": 4,
+                    "_dirtyLevel": 0,
+                    "_runnings": 0,
+                    "_shouldSchedule": false,
+                    "_trackId": 1,
+                    "active": true,
+                    "allowRecurse": true,
+                    "deps": [
+                      Map {
+                        [Circular] => 1,
+                      },
+                      Map {
+                        [Circular] => 1,
+                      },
+                      Map {
+                        [Circular] => 1,
+                      },
+                      Map {
+                        [Circular] => 1,
+                      },
+                    ],
+                    "fn": [Function],
+                    "onTrack": undefined,
+                    "onTrigger": undefined,
+                    "scheduler": [Function],
+                    "trigger": [Function],
+                  },
+                ],
+                "parent": undefined,
+              },
+              "setupContext": {
+                "attrs": {},
+                "emit": [Function],
+                "expose": [Function],
+                "slots": {
+                  "default": [Function],
+                },
+              },
+              "setupState": {},
+              "slots": {
+                "default": [Function],
+              },
+              "slotsProxy": {
+                "default": [Function],
+              },
+              "sp": null,
+              "subTree": {
+                "__v_isVNode": true,
+                "__v_skip": true,
+                "anchor": null,
+                "appContext": null,
+                "children": null,
+                "component": null,
+                "ctx": [Circular],
+                "dirs": null,
+                "dynamicChildren": null,
+                "dynamicProps": null,
+                "el": <anonymous-stub
+                  __usestrictmode="false"
+                  config="[object Object]"
+                />,
+                "key": null,
+                "patchFlag": 0,
+                "props": {
+                  "__useStrictMode": false,
+                  "config": {
+                    "height": 400,
+                    "width": 300,
+                  },
+                },
+                "ref": null,
+                "scopeId": null,
+                "shapeFlag": 1,
+                "slotScopeIds": null,
+                "ssContent": null,
+                "ssFallback": null,
+                "staticCount": 0,
+                "suspense": null,
+                "target": null,
+                "targetAnchor": null,
+                "transition": null,
+                "type": "anonymous-stub",
+              },
+              "suspense": null,
+              "suspenseId": 0,
+              "type": {
+                "model": undefined,
+                "name": "anonymous-stub",
+                "props": {
+                  "__useStrictMode": {
+                    "type": [Function],
+                  },
+                  "config": {
+                    "default": [Function],
+                    "type": [Function],
+                  },
+                },
+                "setup": [Function],
+              },
+              "u": null,
+              "uid": 2,
+              "um": null,
+              "update": [Function],
+              "vnode": [Circular],
+              "withProxy": null,
+            },
+            "ctx": [Circular],
+            "dirs": null,
+            "dynamicChildren": [],
+            "dynamicProps": [
+              "config",
+            ],
+            "el": <anonymous-stub
+              __usestrictmode="false"
+              config="[object Object]"
+            />,
+            "key": null,
+            "patchFlag": 8,
+            "props": {
+              "config": {
+                "height": 400,
+                "width": 300,
+              },
+            },
+            "ref": null,
+            "scopeId": null,
+            "shapeFlag": 36,
+            "slotScopeIds": null,
+            "ssContent": null,
+            "ssFallback": null,
+            "staticCount": 0,
+            "suspense": null,
+            "target": null,
+            "targetAnchor": null,
+            "transition": null,
+            "type": {
+              "model": undefined,
+              "name": "anonymous-stub",
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+          },
+          "suspense": null,
+          "suspenseId": 0,
+          "type": {
+            "components": {
+              "IOGateVue": {
+                "__file": "/app/src/components/circuit/IOGate.vue",
+                "__name": "IOGate",
+                "props": {
+                  "canClick": {
+                    "required": false,
+                    "type": [Function],
+                  },
+                  "drawableGate": {
+                    "required": true,
+                    "type": [Function],
+                  },
+                  "isOutput": {
+                    "required": false,
+                    "type": [Function],
+                  },
+                },
+                "render": [Function],
+                "setup": [Function],
+              },
+            },
+            "data": [Function],
+            "render": [Function],
+            "template": "<v-stage :config='stage' ><v-layer><IOGateVue :drawable-gate='dGate' /></v-layer></v-stage>",
+          },
+          "u": null,
+          "uid": 1,
+          "um": null,
+          "update": [Function],
+          "vnode": [Circular],
+          "withProxy": {
+            "dGate": DrawableGate {
+              "color": "red",
+              "diconnectedColor": "black",
+              "gate": IOGate {
+                "component": ConcreteComponent {
+                  "components": [],
+                  "graphic": undefined,
+                  "inputs": [],
+                  "name": "Dummy Component",
+                  "outputs": [],
+                  "parent": undefined,
+                },
+                "forcedState": undefined,
+                "graphic": [Circular],
+                "in": Pin {
+                  "connections": [],
+                  "gate": [Circular],
+                },
+                "label": "ina",
+                "out": Pin {
+                  "connections": [],
+                  "gate": [Circular],
+                },
+                "running": false,
+                "state": 2,
+                "timeout": undefined,
+              },
+              "lowStateColor": "#181818",
+              "position": {
+                "x": 0,
+                "y": 0,
+              },
+              "size": {
+                "height": 20,
+                "width": 20,
+              },
+              "strokeColor": "black",
+            },
+            "stage": {
+              "height": 400,
+              "width": 300,
+            },
+          },
+        },
+        "ctx": [Circular],
+        "dirs": null,
+        "dynamicChildren": null,
+        "dynamicProps": null,
+        "el": <anonymous-stub
+          __usestrictmode="false"
+          config="[object Object]"
+        />,
+        "key": null,
+        "patchFlag": 0,
+        "props": {
+          "ref": "VTU_COMPONENT",
+        },
+        "ref": {
+          "f": false,
+          "i": [Circular],
+          "k": undefined,
+          "r": "VTU_COMPONENT",
+        },
+        "scopeId": null,
+        "shapeFlag": 4,
+        "slotScopeIds": null,
+        "ssContent": null,
+        "ssFallback": null,
+        "staticCount": 0,
+        "suspense": null,
+        "target": null,
+        "targetAnchor": null,
+        "transition": null,
+        "type": {
+          "components": {
+            "IOGateVue": {
+              "__file": "/app/src/components/circuit/IOGate.vue",
+              "__name": "IOGate",
+              "props": {
+                "canClick": {
+                  "required": false,
+                  "type": [Function],
+                },
+                "drawableGate": {
+                  "required": true,
+                  "type": [Function],
+                },
+                "isOutput": {
+                  "required": false,
+                  "type": [Function],
+                },
+              },
+              "render": [Function],
+              "setup": [Function],
+            },
+          },
+          "data": [Function],
+          "render": [Function],
+          "template": "<v-stage :config='stage' ><v-layer><IOGateVue :drawable-gate='dGate' /></v-layer></v-stage>",
+        },
+      },
+      "suspense": null,
+      "suspenseId": 0,
+      "type": {
+        "name": "VTU_ROOT",
+        "render": [Function],
+        "setup": [Function],
+      },
+      "u": null,
+      "uid": 0,
+      "um": null,
+      "update": [Function],
+      "vnode": {
+        "__v_isVNode": true,
+        "__v_skip": true,
+        "anchor": null,
+        "appContext": {
+          "app": [Circular],
+          "components": {
+            "IOGateVue": {
+              "__file": "/app/src/components/circuit/IOGate.vue",
+              "__name": "IOGate",
+              "props": {
+                "canClick": {
+                  "required": false,
+                  "type": [Function],
+                },
+                "drawableGate": {
+                  "required": true,
+                  "type": [Function],
+                },
+                "isOutput": {
+                  "required": false,
+                  "type": [Function],
+                },
+              },
+              "render": [Function],
+              "setup": [Function],
+            },
+            "transition": {
+              "name": "transition",
+            },
+            "transition-group": {
+              "name": "transition-group",
+            },
+            "vArc": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vArrow": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vCircle": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vEllipse": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vFastLayer": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vGroup": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vImage": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vLabel": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vLayer": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vLine": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vPath": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vRect": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vRegularPolygon": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vRing": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vShape": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vSprite": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vStage": {
+              "inheritAttrs": false,
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vStar": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vTag": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vText": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vTextPath": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vTransformer": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+            "vWedge": {
+              "props": {
+                "__useStrictMode": {
+                  "type": [Function],
+                },
+                "config": {
+                  "default": [Function],
+                  "type": [Function],
+                },
+              },
+              "setup": [Function],
+            },
+          },
+          "config": {
+            "compilerOptions": {},
+            "errorHandler": undefined,
+            "globalProperties": {},
+            "isNativeTag": [Function],
+            "optionMergeStrategies": {},
+            "performance": false,
+            "warnHandler": undefined,
+          },
+          "directives": {},
+          "emitsCache": WeakMap {},
+          "mixins": [
+            {
+              "beforeCreate": [Function],
+            },
+          ],
+          "optionsCache": WeakMap {},
+          "propsCache": WeakMap {},
+          "provides": {},
+          "reload": [Function],
+        },
+        "children": null,
+        "component": [Circular],
+        "ctx": null,
+        "dirs": null,
+        "dynamicChildren": null,
+        "dynamicProps": null,
+        "el": <anonymous-stub
+          __usestrictmode="false"
+          config="[object Object]"
+        />,
+        "key": null,
+        "patchFlag": 0,
+        "props": null,
+        "ref": null,
+        "scopeId": null,
+        "shapeFlag": 4,
+        "slotScopeIds": null,
+        "ssContent": null,
+        "ssFallback": null,
+        "staticCount": 0,
+        "suspense": null,
+        "target": null,
+        "targetAnchor": null,
+        "transition": null,
+        "type": {
+          "name": "VTU_ROOT",
+          "render": [Function],
+          "setup": [Function],
+        },
+      },
+      "withProxy": null,
+    },
+    "_props": null,
+    "_uid": 0,
+    "component": [Function],
+    "config": {
+      "compilerOptions": {},
+      "errorHandler": undefined,
+      "globalProperties": {},
+      "isNativeTag": [Function],
+      "optionMergeStrategies": {},
+      "performance": false,
+      "warnHandler": undefined,
+    },
+    "directive": [Function],
+    "mixin": [Function],
+    "mount": [Function],
+    "provide": [Function],
+    "runWithContext": [Function],
+    "unmount": [Function],
+    "use": [Function],
+    "version": "3.4.18",
+  },
+  "__setProps": [Function],
+  "cleanUpCallbacks": [
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+  ],
+  "componentVM": {
+    "dGate": DrawableGate {
+      "color": "red",
+      "diconnectedColor": "black",
+      "gate": IOGate {
+        "component": ConcreteComponent {
+          "components": [],
+          "graphic": undefined,
+          "inputs": [],
+          "name": "Dummy Component",
+          "outputs": [],
+          "parent": undefined,
+        },
+        "forcedState": undefined,
+        "graphic": [Circular],
+        "in": Pin {
+          "connections": [],
+          "gate": [Circular],
+        },
+        "label": "ina",
+        "out": Pin {
+          "connections": [],
+          "gate": [Circular],
+        },
+        "running": false,
+        "state": 2,
+        "timeout": undefined,
+      },
+      "lowStateColor": "#181818",
+      "position": {
+        "x": 0,
+        "y": 0,
+      },
+      "size": {
+        "height": 20,
+        "width": 20,
+      },
+      "strokeColor": "black",
+    },
+    "stage": {
+      "height": 400,
+      "width": 300,
+    },
+  },
+  "isDisabled": [Function],
+  "rootVM": {
+    "VTU_COMPONENT": {
+      "dGate": DrawableGate {
+        "color": "red",
+        "diconnectedColor": "black",
+        "gate": IOGate {
+          "component": ConcreteComponent {
+            "components": [],
+            "graphic": undefined,
+            "inputs": [],
+            "name": "Dummy Component",
+            "outputs": [],
+            "parent": undefined,
+          },
+          "forcedState": undefined,
+          "graphic": [Circular],
+          "in": Pin {
+            "connections": [],
+            "gate": [Circular],
+          },
+          "label": "ina",
+          "out": Pin {
+            "connections": [],
+            "gate": [Circular],
+          },
+          "running": false,
+          "state": 2,
+          "timeout": undefined,
+        },
+        "lowStateColor": "#181818",
+        "position": {
+          "x": 0,
+          "y": 0,
+        },
+        "size": {
+          "height": 20,
+          "width": 20,
+        },
+        "strokeColor": "black",
+      },
+      "stage": {
+        "height": 400,
+        "width": 300,
+      },
+    },
+  },
+  "wrapperElement": <anonymous-stub
+    __usestrictmode="false"
+    config="[object Object]"
+  />,
+}
+`;

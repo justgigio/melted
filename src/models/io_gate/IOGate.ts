@@ -15,7 +15,7 @@ class IOGate {
   public component: Component
   protected state: IOState = IOState.DISCONNECTED
   private forcedState?: IOState
-  private timeout?: ReturnType<typeof setTimeout>
+  protected timeout?: ReturnType<typeof setTimeout>
   public running: boolean = false
   public in: Pin
   public out: Pin
@@ -83,7 +83,7 @@ class IOGate {
       this.setState(state)
 
       clearTimeout(this.timeout)
-      this.running = true
+
       this.timeout = setTimeout(() => {
         this.out.connections.forEach((conn) => conn.b.gate.run())
       }, 1)

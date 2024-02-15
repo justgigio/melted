@@ -1,6 +1,7 @@
 FROM node:20.11-slim
 
 EXPOSE 3000
+EXPOSE 51204
 
 WORKDIR /app
 

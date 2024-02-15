@@ -34,7 +34,7 @@ module.exports = {
 
   vite_dev_server: {
     start_vite: true,
-    port: process.env.CI ? 4173 : 5173
+    port: process.env.CI ? 4173 : 3000
   },
 
   webdriver: {},
@@ -47,21 +47,21 @@ module.exports = {
   test_settings: {
     default: {
       disable_error_log: false,
-      launch_url: `http://localhost:${process.env.CI ? '4173' : '5173'}`,
+      launch_url: `http://localhost:${process.env.CI ? '4173' : '3000'}`,
 
       screenshots: {
-        enabled: false,
+        enabled: true,
         path: 'screens',
         on_failure: true
       },
 
       desiredCapabilities: {
-        browserName: 'firefox'
+        browserName: 'chrome'
       },
 
       webdriver: {
         start_process: true,
-        server_path: ''
+        server_path: 'node_modules/.bin/chromedriver',
       }
     },
 
