@@ -6,32 +6,22 @@ import { DrawableConnection } from '@/models/graphic/DrawableConnection'
 import { DrawableGate } from '@/models/graphic/DrawableGate'
 
 class AndIOGate extends IOGate {
-  public run() {
-    if (this.running) {
-      const inStates: IOState[] = this.in.connections.map((conn) => conn.b.gate.getState())
+  protected calculateState(inStates: IOState[]): IOState {
+    let state: IOState = IOState.DISCONNECTED
 
-      let state: IOState = IOState.DISCONNECTED
+    const hasHI = inStates.includes(IOState.HI)
+    const hasLOW = inStates.includes(IOState.LOW)
+    const hasDisc = inStates.includes(IOState.DISCONNECTED)
 
-      const hasHI = inStates.includes(IOState.HI)
-      const hasLOW = inStates.includes(IOState.LOW)
-      const hasDisc = inStates.includes(IOState.DISCONNECTED)
+    if (hasHI || hasLOW) {
+      state = IOState.HI
 
-      if (hasHI || hasLOW) {
-        state = IOState.HI
-
-        if (hasDisc || hasLOW) {
-          state = IOState.LOW
-        }
+      if (hasDisc || hasLOW) {
+        state = IOState.LOW
       }
-
-      this.setState(state)
-
-      clearTimeout(this.timeout)
-
-      this.timeout = setTimeout(() => {
-        this.out.connections.forEach((conn) => conn.b.gate.run())
-      }, 1)
     }
+
+    return state
   }
 }
 

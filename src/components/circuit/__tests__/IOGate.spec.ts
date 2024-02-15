@@ -14,18 +14,24 @@ interface LocalTestContext {
 
 describe('IOGateVue', () => {
   beforeEach<LocalTestContext>(async (context) => {
-    const gate = iOGAteFactory.build({label: 'ina'})
+    const gate = iOGAteFactory.build({ label: 'ina' })
 
-    Object.assign(context, {gate})
+    Object.assign(context, { gate })
     // config.global.plugins = [VueKonva]
   })
 
-  it.skip<LocalTestContext>('renders properly', ({gate}) => {
+  it.skip<LocalTestContext>('renders properly', ({ gate }) => {
     const dGate = new DrawableGate(gate)
     const wrapper = {
-      template: "<v-stage :config='stage' ><v-layer><IOGateVue :drawable-gate='dGate' /></v-layer></v-stage>"
+      template:
+        "<v-stage :config='stage' ><v-layer><IOGateVue :drawable-gate='dGate' /></v-layer></v-stage>"
     }
-    const component = mount(wrapper, { data() { return { dGate, stage: { width: 300, height: 400 } } }, global: { components: { IOGateVue }} })
+    const component = mount(wrapper, {
+      data() {
+        return { dGate, stage: { width: 300, height: 400 } }
+      },
+      global: { components: { IOGateVue } }
+    })
     expect(component).toMatchSnapshot()
   })
 })

@@ -41,7 +41,7 @@ class IOGate {
     delete this.forcedState
   }
 
-  protected setState(state: IOState) {
+  private setState(state: IOState) {
     this.state = state
   }
 
@@ -71,14 +71,7 @@ class IOGate {
     if (this.running) {
       const inStates: IOState[] = this.in.connections.map((conn) => conn.b.gate.getState())
 
-      let state: IOState = IOState.DISCONNECTED
-
-      if (inStates.includes(IOState.LOW)) {
-        state = IOState.LOW
-      }
-      if (inStates.includes(IOState.HI)) {
-        state = IOState.HI
-      }
+      const state = this.calculateState(inStates)
 
       this.setState(state)
 
@@ -88,6 +81,19 @@ class IOGate {
         this.out.connections.forEach((conn) => conn.b.gate.run())
       }, 1)
     }
+  }
+
+  protected calculateState(inStates: IOState[]): IOState {
+    let state: IOState = IOState.DISCONNECTED
+
+    if (inStates.includes(IOState.LOW)) {
+      state = IOState.LOW
+    }
+    if (inStates.includes(IOState.HI)) {
+      state = IOState.HI
+    }
+
+    return state
   }
 
   public stop() {
